@@ -1,0 +1,181 @@
+<html><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Rosetta og Philae | Kodeklubben</title><link href="../../assets/style.min.css" rel="stylesheet"/><script type="text/javascript">// convert url relative to current file
+// ex: python/index.html -> ../python/index.html
+function relative(url) {
+  var urlRoot = '../..';
+  if (urlRoot !== '') {
+    return urlRoot + '/' + url;
+  }
+  return url;
+}</script></head><body><div class="container"><div class="row"><div class="col-xs-12"><div class="top-menu"><a href="../../index.html" class="btn btn-default"><span aria-hidden="true" class="glyphicon glyphicon-home"></span><span class="hidden-xs"> Forside</span></a><form class="search"><input type="text" placeholder="Søk" class="form-control"/></form><a title="Ta en omvisning på siden" data-placement="bottom" href="#" class="intro"></a><div class="links"><a href="http://www.kidsakoder.no" class="btn btn-default hidden-xs"><span>Lær Kidsa Koding</span></a></div></div></div><div class="search"><div class="results"><h1>Søkeresultat</h1></div></div><div class="col-xs-12"><header class="clearfix"><img src="../../assets/img/ccno_logo.png" class="logo hidden-xs"/><h1 class="title">Rosetta og Philae</h1><div class="lesson-icons"><div class="level"><img title="Level 3" src="../../assets/img/level3.png"/><span>Erfaren</span></div><div class="course"><img src="../logo-white.png"/><span>Python</span></div><div class="pdf"><a href="/python/rosetta_og_philae/rosetta_og_philae.pdf" title="Last ned PDF" class="download"><span class="glyphicon glyphicon-save-file"></span></a><span>PDF</span></div></div></header></div><div class="col-xs-12"><div class="content"><section id="introduksjon" class="level1 intro">
+<h1>Introduksjon</h1>
+<p>Romsonden Rosetta ble sendt ut av Den Europeiske Romfartsorganisasjonen (ESA) for å utforske kometen 67P/Tsjurjumov-Gerasimenko. I november 2014 sendte Rosetta ut landingsfartøyet Philae som landet på selve kometen. Vi skal i denne leksjonen bruke skilpaddegrafikk til å lage et enkelt spill hvor målet er å styre Philae slik at det lander perfekt på kometen.</p>
+<figure>
+<img src="rosetta_og_philae.png" />
+</figure>
+</section>
+<section id="steg-1-skilpadden-blir-et-romskip" class="level1 activity">
+<h1>Steg 1: Skilpadden blir et romskip</h1>
+<p>Vi skal nå bruke skilpadden som om den er et romskip. Vi begynner enkelt med å tegne skilpadden på skjermen.</p>
+<section id="sjekkliste" class="level2 check">
+<h2>Sjekkliste</h2>
+<ul>
+<li><p>Start et nytt Python-prosjekt, og skriv inn følgende kode:</p>
+<pre><code class="hljs python"><span class="hljs-keyword">import</span> turtle
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">tegn_romskip</span><span class="hljs-params">()</span>:</span>
+    turtle.penup()
+    turtle.shapesize(<span class="hljs-number">4</span>)
+    turtle.setpos(<span class="hljs-number">200</span>, <span class="hljs-number">400</span>)
+    turtle.setheading(<span class="hljs-number">90</span>)
+    turtle.color(<span class="hljs-string">'blue'</span>)
+
+tegn_romskip()
+input(<span class="hljs-string">'Trykk Enter'</span>)</code></pre>
+
+<p>Lagre programmet med navnet <code>rosetta.py</code>.</p></li>
+<li><p>Kjør programmet ditt. Skjønner du hva som skjer?</p>
+<p>Vi har laget èn funksjon, <code>tegn_romskip</code>, som gjør trekanten større, flytter den til toppen av skjermen, roterer den og fargelegger den mørkeblå. Dette vil være romskipet vårt.</p></li>
+<li><p>Linjen <code>input('Trykk Enter')</code> har vi lagt til for at ikke turtle-vinduet skal bli borte med en gang. Prøv å ta vekk denne linjen for å se hva som skjer.</p></li>
+<li><p>Vi vil også lage en bakgrunn som ligner litt på en komet. Legg til denne funksjonen før <code>def tegn_romskip()</code>:</p>
+<pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">tegn_bakgrunn</span><span class="hljs-params">()</span>:</span>
+    turtle.bgcolor(<span class="hljs-string">'black'</span>)
+    turtle.speed(<span class="hljs-number">11</span>)
+    turtle.pensize(<span class="hljs-number">10</span>)
+    turtle.penup()
+    turtle.setposition(-<span class="hljs-number">400</span>, -<span class="hljs-number">300</span>)
+    turtle.pendown()
+    turtle.color(<span class="hljs-string">'grey'</span>)
+    turtle.forward(<span class="hljs-number">800</span>)</code></pre>
+</li>
+<li><p>Legg også inn et kall til denne nye funksjonen <code>tegn_bakgrunn()</code> rett før <code>tegn_romskip()</code> blir kalt.</p></li>
+<li><p>Kjør programmet ditt. Tegnes også en enkel bakgrunn? Endre gjerne litt på de forskjellige tallene og verdiene i koden over, slik at du skjønner hva de forskjellige kommandoene gjør. Kanskje du kan lage en enda bedre bakgrunn?</p></li>
+</ul>
+</section>
+</section>
+<section id="steg-2-romskipet-faller-mot-kometen" class="level1 activity">
+<h1>Steg 2: Romskipet faller mot kometen</h1>
+<p>La oss begynne med å legge på litt effekt av gravitasjonen, slik at romskipet faller ned mot kometen.</p>
+<section id="sjekkliste-1" class="level2 check">
+<h2>Sjekkliste</h2>
+<ul>
+<li><p>Først lager vi en variabel som sier hvor sterk gravitasjonseffekten er. Legg denne nesten helt øverst i programmet ditt, rett under <code>import turtle</code>, slik at den er lett å finne igjen senere.</p>
+<pre><code class="hljs python">gravitasjon = -<span class="hljs-number">0.01</span></code></pre>
+
+<p>Vi starter med en ganske liten gravitasjonseffekt. Pass på at den er negativ, slik at romskipet vil falle nedover.</p></li>
+<li><p>Vi vil også trenge en beskrivelse av tilstanden til romskipet. I praksis vil dette i denne omgang være hvor fort romskipet beveger seg. Legg til disse linjene rett under definisjonen av <code>gravitasjon</code>.</p>
+<pre><code class="hljs python">romskip = {
+    <span class="hljs-string">'fart_x'</span>: <span class="hljs-number">0.1</span>,
+    <span class="hljs-string">'fart_y'</span>: <span class="hljs-number">0.5</span>
+}</code></pre>
+
+<p><code>romskip</code> er her en <code>dict</code> (<code>dict</code> er en forkortelse for <em>dictionary</em>, eller <em>ordbok</em>). Dette er en veldig nyttig datastruktur i Python, som gjør det lett å samle variabler som hører sammen. Vi kan hente ut verdiene for eksempel ved <code>romskip['fart_x']</code>.</p></li>
+<li><p>Vi kan nå skrive koden som flyr romskipet. Legg til denne funksjonen etter definisjonen av <code>tegn_romskip()</code>.</p>
+<pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fly_romskip</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:
+        x, y = turtle.position()
+        <span class="hljs-keyword">if</span> y &lt; -<span class="hljs-number">270</span>:
+            <span class="hljs-keyword">return</span>
+
+        romskip[<span class="hljs-string">'fart_y'</span>] += gravitasjon
+        turtle.setposition(x + romskip[<span class="hljs-string">'fart_x'</span>], y + romskip[<span class="hljs-string">'fart_y'</span>])</code></pre>
+</li>
+<li><p>Legg også inn et kall til <code>fly_romskip()</code> etter kallet til <code>tegn_romskip()</code>.</p></li>
+<li><p>Kjør programmet. Faller romskipet ditt ned mot kometen? Stopper romskipet når det kommer til bakken?</p>
+<p>Prøv å endre verdiene for <code>gravitasjon</code>, <code>fart_x</code> og <code>fart_y</code>. Hvordan endrer dette bevegelsen til romskipet? Hva gjør tallet <code>-270</code> i koden? Hva skjer om du forandrer dette?</p></li>
+<li><p>Den viktigste koden for å flytte romskipet er linjene</p>
+<pre><code class="hljs python">romskip[<span class="hljs-string">'fart_y'</span>] += gravitasjon
+        turtle.setposition(x + romskip[<span class="hljs-string">'fart_x'</span>], y + romskip[<span class="hljs-string">'fart_y'</span>])</code></pre>
+
+<p>Skjønner du hvordan disse fungerer? Først endrer vi den vertikale hastigheten (<code>fart_y</code>) basert på effekten av gravitasjonen. Deretter flytter vi romskipet så langt som farten tilsier.</p></li>
+</ul>
+</section>
+</section>
+<section id="steg-3-vi-styrer-romskipet" class="level1 activity">
+<h1>Steg 3: Vi styrer romskipet!</h1>
+<p>Vi skal nå se hvordan vi kan bruke piltastene til å styre romskipet.</p>
+<section id="sjekkliste-2" class="level2 check">
+<h2>Sjekkliste</h2>
+<p>For at Python skal oppdage at vi trykker på en tast skal vi bruke noe som kalles hendelser (<em>events</em> på engelsk). I turtle-biblioteket finnes flere typer hendelser. Vi skal bruke noen som heter <code>onkey</code>.</p>
+<ul>
+<li><p>La oss begynne enkelt ved å vri romskipet mot høyre når den høyre piltasten trykkes. Lag først en enkel funksjon som snur romskipet mot høyre:</p>
+<pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">snu_hoyre</span><span class="hljs-params">()</span>:</span>
+    turtle.right(<span class="hljs-number">5</span>)</code></pre>
+</li>
+<li><p>Nå må vi fortelle Python at vi vil at denne funksjonen skal kobles til høyre piltast. Legg til disse linjene nederst i <code>tegn_romskip</code>-funksjonen:</p>
+<pre><code class="hljs python">turtle.onkey(snu_hoyre, <span class="hljs-string">'Right'</span>)
+    turtle.listen()</code></pre>
+
+<p>Den andre linjen forteller Python at den må lytte etter hendelser.</p></li>
+<li><p>Kjør programmet ditt. Snur romskipet seg mot høyre om du trykker høyre piltast?</p></li>
+<li><p>Skriv nå tilsvarende kode som kan snu romskipet mot venstre. Dette klarer du selv!</p></li>
+</ul>
+<p>Til slutt vil vi bruke pil-opp-tasten for å gi romskipet vårt litt fart. Når vi trykker pil-opp skal romskipet få litt fart i den retningen det peker. Siden vi holder styr på farten i <code>x</code>- og <code>y</code>-retning separat, må vi fordele denne akselerasjonen. Til dette kan vi bruke matematikk-funksjonene <em>sinus</em> og <em>cosinus</em>.</p>
+<figure>
+<img src="dekomponer.png" />
+</figure>
+<ul>
+<li><p>Sinus og cosinus er en del av <code>math</code>-biblioteket i Python, slik at vi må importere dette først. Legg til denne linjen helt øverst, sammen med <code>import turtle</code>.</p>
+<pre><code class="hljs python"><span class="hljs-keyword">import</span> math</code></pre>
+</li>
+<li><p>Legg så til en ny funksjon, <code>bruk_motor</code>:</p>
+<pre><code class="hljs python">vinkel = turtle.heading() * math.pi / <span class="hljs-number">180.0</span>
+romskip[<span class="hljs-string">'fart_x'</span>] += math.cos(vinkel)
+romskip[<span class="hljs-string">'fart_y'</span>] += math.sin(vinkel)</code></pre>
+
+<p>En liten ekstra komplikasjon i denne koden er at <code>turtle</code>- og <code>math</code>-bibliotekene regner med vinkler litt forskjellig. <code>turtle</code> bruker grader, mens <code>math</code> bruker radianer. For å bytte fra grader til radianer har vi ganget vinkelen med pi og delt på 180.</p></li>
+<li><p>Til slutt må vi si at <code>bruk_motor</code> skal kalles når vi trykker pil-opp. Legg til denne linjen sammen med de andre <code>onkey</code>-linjene:</p>
+<pre><code class="hljs python">turtle.onkey(bruk_motor, <span class="hljs-string">'Up'</span>)</code></pre>
+</li>
+<li><p>Prøv spillet ditt igjen. Klarer du å styre romskipet ditt rundt på skjermen? Vær forsiktig slik at du ikke forsvinner i verdensrommet!</p></li>
+</ul>
+</section>
+</section>
+<section id="steg-4-klarer-vi-å-lande-trygt" class="level1 activity">
+<h1>Steg 4: Klarer vi å lande trygt?</h1>
+<p>Avslutningsvis skal vi lage en base på kometen hvor vi vil at romskipet skal lande.</p>
+<section id="sjekkliste-3" class="level2 check">
+<h2>Sjekkliste</h2>
+<ul>
+<li><p>Vi begynner med å tegne opp et felt hvor vi vil at romskipet skal lande. Bytt ut linjen <code>turtle.forward(800)</code> i funksjonen <code>tegn_bakgrunn</code> med linjene</p>
+<pre><code class="hljs python">turtle.forward(<span class="hljs-number">200</span>)
+turtle.color(<span class="hljs-string">'red'</span>)
+turtle.forward(<span class="hljs-number">200</span>)
+turtle.color(<span class="hljs-string">'grey'</span>)
+turtle.forward(<span class="hljs-number">400</span>)</code></pre>
+
+<p>Om du kjører programmet igjen vil du se en rød base på kometen.</p></li>
+<li><p>Vi vil nå sjekke at landingen er bra. Skriv følgende funksjon,</p>
+<pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sjekk_landing</span><span class="hljs-params">()</span>:</span>
+    x = turtle.xcor()
+
+    <span class="hljs-keyword">if</span> x &lt; -<span class="hljs-number">200</span> <span class="hljs-keyword">or</span> x &gt; <span class="hljs-number">0</span>:
+        print(<span class="hljs-string">'Du landet utenfor basen!'</span>)</code></pre>
+<p>def sjekk_landing():</p>
+<pre><code>x = turtle.xcor()
+vinkel = turtle.heading()                 # Ny linje
+
+if x &lt; -200 or x &gt; 0:
+    print(&#39;Du landet utenfor basen!&#39;)
+elif abs(vinkel - 90) &gt; 10:               # Ny linje
+    print(&#39;Du landet skjevt!&#39;)            # Ny linje
+elif romskip[&#39;fart_y&#39;] &lt; -1:              # Ny linje
+    print(&#39;Du landet for hardt!&#39;)         # Ny linje
+else:                                     # Ny linje
+    print(&#39;Perfekt landing!&#39;)             # Ny linje</code></pre></li>
+<li><p>Prøv spillet ditt igjen. Test at alle de fire forskjellige meldingene virker som de skal!</p></li>
+</ul>
+</section>
+<section id="prøv-selv" class="level2 try">
+<h2>Prøv selv</h2>
+<p>Da er vi ferdig med et enkelt kometlander-spill. Den virkelige Rosetta og Philae-operasjonen var nok litt mer komplisert!</p>
+<p>Prøv gjerne å videreutvikle spillet ditt. Her er noen ideer:</p>
+<ul>
+<li><p>Kan du la utgangsposisjonen og farten til romskipet være tilfeldig? Se på funksjonen <code>randint()</code> fra <code>random</code>-biblioteket.</p></li>
+<li><p>Kanskje du kan regne ut en poengsum etter landingen? For eksempel basert på hvor hardt man lander, og hvor lang tid man bruker på landingen. For å ta tiden kan du se på funksjonen <code>time()</code> i <code>time</code>-biblioteket.</p></li>
+<li><p>Kanskje du kan la spilleren automatisk få en ny sjanse dersom han krasjer?</p></li>
+<li><p>Kan du begrense akselerasjonen (se i <code>bruk_motor</code>-funksjonen) slik at man ikke så lett forsvinner ut i verdensrommet?</p></li>
+</ul>
+</section>
+</section>
+</div></div><div class="col-xs-12"><div id="footer" class="clearfix"><div class="license"><p><strong>Lisens:</strong></p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/deed.no">CC BY-SA 4.0</a></div><div class="author"><p><strong>Forfatter:</strong></p><p>Geir Arne Hjelle</p>
+</div></div></div></div></div><div class="intro-question modal fade"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title">Hei der!</h4></div><div class="modal-body"><p>Ser ut som dette er ditt første besøk, vil du ha en omvisning?</p></div><div class="modal-footer"><button class="btn btn-success">Ja!</button><button data-dismiss="modal" class="btn btn-danger">Nei takk</button></div></div></div></div><script src="../../assets/vendor.min.js"></script><script src="../../assets/script.min.js"></script></body></html>

@@ -1,0 +1,131 @@
+<html><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>HTML | Kodeklubben</title><link href="../../assets/style.min.css" rel="stylesheet"/><script type="text/javascript">// convert url relative to current file
+// ex: python/index.html -> ../python/index.html
+function relative(url) {
+  var urlRoot = '../..';
+  if (urlRoot !== '') {
+    return urlRoot + '/' + url;
+  }
+  return url;
+}</script></head><body><div class="container"><div class="row"><div class="col-xs-12"><div class="top-menu"><a href="../../index.html" class="btn btn-default"><span aria-hidden="true" class="glyphicon glyphicon-home"></span><span class="hidden-xs"> Forside</span></a><form class="search"><input type="text" placeholder="Søk" class="form-control"/></form><a title="Ta en omvisning på siden" data-placement="bottom" href="#" class="intro"></a><div class="links"><a href="http://www.kidsakoder.no" class="btn btn-default hidden-xs"><span>Lær Kidsa Koding</span></a></div></div></div><div class="search"><div class="results"><h1>Søkeresultat</h1></div></div><div class="col-xs-12"><header class="clearfix"><img src="../../assets/img/ccno_logo.png" class="logo hidden-xs"/><h1 class="title">HTML</h1><div class="lesson-icons"><div class="level"><img title="Level 1" src="../../assets/img/level1.png"/><span>Introduksjon</span></div><div class="course"><img src="../../logo-white.png"/><span>Kodetimen</span></div><div class="pdf"><a href="/aa-kodetimen/html/html.pdf" title="Last ned PDF" class="download"><span class="glyphicon glyphicon-save-file"></span></a><span>PDF</span></div></div></header></div><div class="col-xs-12"><div class="content"><section id="introduksjon" class="level1 intro">
+<h1>Introduksjon</h1>
+<p>HTML, HyperText Markup Language, er språket som beskriver innholdet på alle nettsider. HTML er strengt tatt ikke et programmeringsspråk, men brukes sammen med språk som for eksempel JavaScript, PHP og Python for å lage fullstendinge nettløsninger.</p>
+</section>
+<section id="steg-1-verdens-enkleste-nettside" class="level1 activity">
+<h1>Steg 1: Verdens enkleste nettside</h1>
+<p>La oss komme i gang med å lage verdens enkleste nettside.</p>
+<section id="sjekkliste" class="level2 check">
+<h2>Sjekkliste</h2>
+<ul>
+<li><p>Åpne <code>Notepad</code> eller et tilsvarende program for å skrive ren tekst (ikke en tekstbehandler som for eksempel <code>Word</code>).</p></li>
+<li><p>Skriv følgende linje øverst i dokumentet:</p>
+<pre><code class="hljs html">Hei verden!</code></pre>
+</li>
+<li><p>Lagre dokumentet som <code>heiverden.html</code>. Pass på at etternavnet til filen blir <code>.html</code> og ikke <code>.txt</code> eller <code>.html.txt</code>.</p></li>
+</ul>
+</section>
+<section id="se-resultatet" class="level2 flag">
+<h2>Se resultatet</h2>
+<ul>
+<li><p>Åpne en nettleser og velg <code>Fil -&gt; Åpne fil</code> eller tilsvarende fra menyen (du kan ofte bruke tastatursnarveien <code>Ctrl - O</code>). Velg filen <code>heiverden.html</code> som vi nettopp lagde.</p></li>
+<li><p>Du vil nå se en nesten tom skjerm med teksten <code>Hei verden!</code> øverst i venstre hjørne. Vi har laget verdens enkleste nettside.</p></li>
+</ul>
+<p>Strengt tatt har vi <strong>ikke</strong> skrevet et HTML-dokument enda. HTML (i motsetning til de fleste programmeringsspråk) blir tolket i <em>beste mening</em>, og nettleseren tilgir oss at vi har gjort en del feil. La oss derfor utvide eksempelet vårt.</p>
+</section>
+<section id="sjekkliste-1" class="level2 check">
+<h2>Sjekkliste</h2>
+<ul>
+<li><p>Gå tilbake til <code>Notepad</code> og endre <code>heiverden.html</code> slik at den ser ut som følger:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-title">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span>Hei HTML<span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">head</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">h1</span>&gt;</span>Hei verden!<span class="hljs-tag">&lt;/<span class="hljs-title">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>
+Her er en liten nettside.
+<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span></code></pre>
+</li>
+<li><p>Lagre filen, gå tilbake til nettleseren og frisk opp siden (<code>F5</code>). Finner du igjen tekstene <code>Hei HTML</code>, <code>Hei verden!</code> og <code>Her   er en liten nettside</code> på siden?</p></li>
+</ul>
+<p>HTML er et såkalt <em>Markup Language</em>. Det betyr at vi markerer hva forskjellige deler av innholdet er. Du ser en del ord mellom <code>&lt;</code> og <code>&gt;</code>, for eksempel <code>&lt;html&gt;</code>, <code>&lt;body&gt;</code> og <code>&lt;h1&gt;</code>. Disse er markørene.</p>
+<p>Legg også merke til at markørene kommer i par, hvor de avsluttes med en ekstra <code>/</code>. For eksempel <code>&lt;title&gt;Hei HTML&lt;/title&gt;</code>, <code>&lt;h1&gt;Hei verden!&lt;/h1&gt;</code> og til og med <code>&lt;html&gt; ... andre markører og tekst ... &lt;/html&gt;</code>.</p>
+<ul>
+<li><p>Se på HTML-koden du skrev tidligere. Klarer du å gjette hva de forskjellige HTML-markørene betyr?</p>
+<p>Et HTML-dokument skal være avgrenset av <code>&lt;html&gt; ... &lt;/html&gt;</code>, og delt i to deler: En <code>head</code> som inneholder informasjon om dokumentet som ikke vises på selve siden, og en <code>body</code> som er selve innholdet på siden.</p>
+<p>Markøren <code>&lt;title&gt;</code> viser tittelen til nettsiden. Denne brukes ofte av nettleseren på faner og i historikken. For å markere overskrifter kan vi bruke forskjellige <code>&lt;h ...&gt;</code>-arkører (<code>h</code> for <em>heading</em>). <code>&lt;h1&gt;</code>er den største overskriften, mens også <code>&lt;h2&gt;</code>til <code>&lt;h6&gt;</code> kan brukes. Vanlig tekst legges ofte i <code>&lt;p&gt;</code>-markører (<code>p</code> for <em>paragraph</em>).</p></li>
+<li><p>Prøv å endre litt på nettsiden din. Endre størrelsen på overskriften. Legg til flere avsnitt og flere overskrifter.</p></li>
+</ul>
+</section>
+</section>
+<section id="steg-2-lenker" class="level1 activity">
+<h1>Steg 2: Lenker</h1>
+<p>En av de tingene som gjorde nettet så revolusjonerende var muligheten til å lenke sammen informasjon (det er dette som ble kalt <em>Hypertext</em>). Vi skal nå se hvor lett det er å lage lenker på nettsiden vår.</p>
+<section id="sjekkliste-2" class="level2 check">
+<h2>Sjekkliste</h2>
+<ul>
+<li><p>Legg til følgende avsnitt i <code>body</code>en i dokumentet ditt:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>
+Vi er på <span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">"http://www.kartverket.no/"</span>&gt;</span>Kartverket<span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span> i dag.
+<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span></code></pre>
+</li>
+<li><p>Se på siden i nettleseren. Dukket det opp en lenke til Kartverkets hjemmeside?</p></li>
+</ul>
+<p>For å lage lenker bruker vi markøren <code>&lt;a&gt;</code> (<code>a</code> for <em>anchor</em>). Men i tillegg til navnet på markøren ser vi at vi også gir litt ekstra informasjon. Vi må fortelle hvor lenken skal peke. Dette gjør vi ved å bruke nøkkelordet <code>href</code> (<em>hyper-reference</em>).</p>
+<ul>
+<li><p>Prøv selv å endre lenken slik at den peker et annet sted.</p></li>
+<li><p>Legg til flere lenker på siden din.</p></li>
+</ul>
+</section>
+</section>
+<section id="steg-3-stiler" class="level1 activity">
+<h1>Steg 3: Stiler</h1>
+<p>Nå har vi laget innhold på siden vår. Men den ser ikke veldig fin ut. For det meste bryr ikke HTML seg om utseendet. I stedet bruker vi noe som kalles CSS (Cascading Style Sheets) for å fortelle hvordan siden skal se ut.</p>
+<section id="sjekkliste-3" class="level2 check">
+<h2>Sjekkliste</h2>
+<ul>
+<li><p>Legg til følgende i <code>head</code>-delen av dokumentet ditt.</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-title">style</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text/css"</span>&gt;</span><span class="css">
+  <span class="hljs-tag">body</span> <span class="hljs-rules">{ <span class="hljs-rule"><span class="hljs-attribute">background</span>:<span class="hljs-value"> yellow </span></span></span>}
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">style</span>&gt;</span></code></pre>
+
+<p>Vi kjenner igjen <code>&lt;style&gt;</code> som en markør som sier at den markerte teksten er av typen CSS. Selve teksten <code>body { background: yellow }</code> inneholder et par rare tegn, men virker ellers ganske selvforklarende. Det ser ut som om vi ønsker en gul bakgrunn!</p></li>
+<li><p>Frisk opp siden din, og se at den nå har fått en nydelig gulfarge!</p></li>
+<li><p>Vi kan legge på flere stilegenskaper ved å skille dem med semikolon. Endre stilen din som følger:</p>
+<pre><code class="hljs css"><span class="hljs-tag">body</span> <span class="hljs-rules">{ <span class="hljs-rule"><span class="hljs-attribute">background</span>:<span class="hljs-value"> yellow</span></span>; <span class="hljs-rule"><span class="hljs-attribute">color</span>:<span class="hljs-value"> blue </span></span></span>}</code></pre>
+
+<p>Nå skrives teksten i en blå farge.</p></li>
+</ul>
+<p>Legg merke til at vi ikke trengte å spesifisere at overskriftene (<code>&lt;h1&gt;</code>) eller avsnittene (<code>&lt;p&gt;</code>) skulle skrives med blått. I stedet har vi sagt at all tekst innenfor <code>&lt;body&gt;</code> skal være blå, dette er hva <em>cascading</em> betyr.</p>
+<ul>
+<li><p>Vi kan likevel overstyre stiler på lavere nivå. Endre stilen din ved å legge til noen egenskaper for <code>p</code>:</p>
+<pre><code class="hljs css"><span class="hljs-tag">body</span> <span class="hljs-rules">{ <span class="hljs-rule"><span class="hljs-attribute">background</span>:<span class="hljs-value"> yellow</span></span>; <span class="hljs-rule"><span class="hljs-attribute">color</span>:<span class="hljs-value"> blue </span></span></span>}
+<span class="hljs-tag">p</span> <span class="hljs-rules">{ <span class="hljs-rule"><span class="hljs-attribute">color</span>:<span class="hljs-value"> green</span></span>; <span class="hljs-rule"><span class="hljs-attribute">font-family</span>:<span class="hljs-value"> Arial, sans-serif </span></span></span>}</code></pre>
+</li>
+</ul>
+</section>
+</section>
+<section id="steg-4-bokser" class="level1 activity">
+<h1>Steg 4: Bokser</h1>
+<p>Av og til vil vi ha enda mer kontroll over utseendet enn vi får gjennom vanlige HTML-markører. Til dette kan vi bruke noe som kalles bokser og klasser.</p>
+<section id="sjekkliste-4" class="level2 check">
+<h2>Sjekkliste</h2>
+<ul>
+<li><p>Legg til følgende linje i CSS-definisjonen din:</p>
+<pre><code class="hljs css"><span class="hljs-class">.utrop</span> <span class="hljs-rules">{ <span class="hljs-rule"><span class="hljs-attribute">color</span>:<span class="hljs-value"> red </span></span></span>}</code></pre>
+
+<p>Her er ikke <code>.utrop</code> en vanlig markør. I stedet forteller vi om utseendet til <em>klassen</em> <code>utrop</code>. Dette gjør det enkelt å legge litt spesiell funksjonalitet på deler av nettsiden.</p></li>
+<li><p>Legg til et avsnitt på formen:</p>
+<pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-title">p</span>&gt;</span>
+Her er en <span class="hljs-tag">&lt;<span class="hljs-title">span</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"utrop"</span>&gt;</span>liten<span class="hljs-tag">&lt;/<span class="hljs-title">span</span>&gt;</span> nettside.
+<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span></code></pre>
+
+<p>Markøren <code>span</code> bruker vi her bare til å lage en liten (usynlig) boks som vi så kan anvende klassen <code>utrop</code> på.</p></li>
+<li><p>Med <code>&lt;div&gt;</code> kan man lage større bokser. Den skal vi se på etter pausen!</p></li>
+</ul>
+</section>
+</section>
+</div></div><div class="col-xs-12"><div id="footer" class="clearfix"><div class="license"><p><strong>Lisens:</strong></p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/deed.no">CC BY-SA 4.0</a></div><div class="author"><p><strong>Forfatter:</strong></p><p>Geir Arne Hjelle</p>
+</div></div></div></div></div><div class="intro-question modal fade"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title">Hei der!</h4></div><div class="modal-body"><p>Ser ut som dette er ditt første besøk, vil du ha en omvisning?</p></div><div class="modal-footer"><button class="btn btn-success">Ja!</button><button data-dismiss="modal" class="btn btn-danger">Nei takk</button></div></div></div></div><script src="../../assets/vendor.min.js"></script><script src="../../assets/script.min.js"></script></body></html>

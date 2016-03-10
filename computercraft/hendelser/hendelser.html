@@ -1,4 +1,12 @@
-<html><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Hendelser | Kodeklubben</title><link href="../../assets/style.min.css" rel="stylesheet"/></head><body><div class="container"><div class="row"><div class="col-xs-12"><div class="top-menu"><a href="../../index.html" class="btn btn-default"><span aria-hidden="true" class="glyphicon glyphicon-home"></span> Hjem</a></div></div><div class="col-xs-12"><header class="clearfix"><img src="../../assets/img/ccno_logo.png" class="logo hidden-xs"/><h1 class="title">Hendelser<a href="/computercraft/hendelser/hendelser.pdf" title="Last ned PDF" class="download"><span class="glyphicon glyphicon-save-file"></span></a></h1></header></div><div class="col-xs-12"><div class="content"><section id="introduksjon" class="level1 intro">
+<html><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Hendelser | Kodeklubben</title><link href="../../assets/style.min.css" rel="stylesheet"/><script type="text/javascript">// convert url relative to current file
+// ex: python/index.html -> ../python/index.html
+function relative(url) {
+  var urlRoot = '../..';
+  if (urlRoot !== '') {
+    return urlRoot + '/' + url;
+  }
+  return url;
+}</script></head><body><div class="container"><div class="row"><div class="col-xs-12"><div class="top-menu"><a href="../../index.html" class="btn btn-default"><span aria-hidden="true" class="glyphicon glyphicon-home"></span><span class="hidden-xs"> Forside</span></a><form class="search"><input type="text" placeholder="Søk" class="form-control"/></form><a title="Ta en omvisning på siden" data-placement="bottom" href="#" class="intro"></a><div class="links"><a href="http://www.kidsakoder.no" class="btn btn-default hidden-xs"><span>Lær Kidsa Koding</span></a></div></div></div><div class="search"><div class="results"><h1>Søkeresultat</h1></div></div><div class="col-xs-12"><header class="clearfix"><img src="../../assets/img/ccno_logo.png" class="logo hidden-xs"/><h1 class="title">Hendelser</h1><div class="lesson-icons"><div class="level"><img title="Level 2" src="../../assets/img/level2.png"/><span>Nybegynner</span></div><div class="course"><img src="../logo-white.png"/><span>ComputerCraft</span></div><div class="pdf"><a href="/computercraft/hendelser/hendelser.pdf" title="Last ned PDF" class="download"><span class="glyphicon glyphicon-save-file"></span></a><span>PDF</span></div></div></header></div><div class="col-xs-12"><div class="content"><section id="introduksjon" class="level1 intro">
 <h1>Introduksjon</h1>
 <p>I denne leksjonen skal vi se nærmere på hvordan datamaskinene bruker såkalte hendelser for å reagere på ting som tastetrykk, museklikk og så videre. Etterhvert vil vi bli enda bedre kjent med datamaskinene, og lære hvordan vi flytter filer og programmer rundt omkring på en datamaskin eller mellom forskjellige datamaskiner.</p>
 <figure>
@@ -12,74 +20,79 @@
 <h2>Sjekkliste</h2>
 <ul>
 <li><p>Start et nytt program ved å skrive <code>edit skattejakt</code>, skriv inn det følgende:</p>
-<pre class="sourceCode lua"><code class="sourceCode lua"><span class="kw">local</span> x <span class="ot">=</span> <span class="dv">20</span>
-<span class="kw">local</span> y <span class="ot">=</span> <span class="dv">10</span>
+<pre><code class="hljs lua"><span class="hljs-keyword">local</span> x = <span class="hljs-number">20</span>
+<span class="hljs-keyword">local</span> y = <span class="hljs-number">10</span>
 
-term<span class="ot">.</span>clear<span class="ot">()</span>
-term<span class="ot">.</span>setCursorPos<span class="ot">(</span>x<span class="ot">,</span> y<span class="ot">)</span>
-<span class="fu">print</span><span class="ot">(</span><span class="st">&#39;O&#39;</span><span class="ot">)</span></code></pre>
+term.clear()
+term.setCursorPos(x, y)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">'O'</span>)</code></pre>
+
 <p>Lagre og kjør programmet. Skjønner du hva det gjør? Prøv å forandre verdiene av <code>x</code> og <code>y</code> og kjør igjen.</p></li>
 <li><p>Så langt skriver programmet bare ut en <code>O</code> på en gitt posisjon. Nå vil vi bruke hendelser for å kunne flytte denne figuren rundt på skjermen.</p>
 <p>For å vente på hendelser bruker vi <code>os.pullEvent()</code>. Vi vil spesielt vente på taste-hendelser. Disse hendelsene kalles <code>key</code> i ComputerCraft. Forandre programmet ditt som under:</p>
-<pre class="sourceCode lua"><code class="sourceCode lua"><span class="kw">local</span> x <span class="ot">=</span> <span class="dv">20</span>
-<span class="kw">local</span> y <span class="ot">=</span> <span class="dv">10</span>
+<pre><code class="hljs lua"><span class="hljs-keyword">local</span> x = <span class="hljs-number">20</span>
+<span class="hljs-keyword">local</span> y = <span class="hljs-number">10</span>
 
-term<span class="ot">.</span>clear<span class="ot">()</span>
-term<span class="ot">.</span>setCursorPos<span class="ot">(</span>x<span class="ot">,</span> y<span class="ot">)</span>
-<span class="fu">print</span><span class="ot">(</span><span class="st">&#39;O&#39;</span><span class="ot">)</span>
+term.clear()
+term.setCursorPos(x, y)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">'O'</span>)
 
-<span class="kw">local</span> hendelse<span class="ot">,</span> tast <span class="ot">=</span> os<span class="ot">.</span>pullEvent<span class="ot">(</span><span class="st">&#39;key&#39;</span><span class="ot">)</span>    <span class="co">-- ny linje</span>
-<span class="fu">print</span><span class="ot">(</span>hendelse<span class="ot">)</span>                               <span class="co">-- ny linje</span>
-<span class="fu">print</span><span class="ot">(</span>tast<span class="ot">)</span>                                   <span class="co">-- ny linje</span></code></pre>
+<span class="hljs-keyword">local</span> hendelse, tast = <span class="hljs-built_in">os</span>.pullEvent(<span class="hljs-string">'key'</span>)    <span class="hljs-comment">-- ny linje</span>
+<span class="hljs-built_in">print</span>(hendelse)                               <span class="hljs-comment">-- ny linje</span>
+<span class="hljs-built_in">print</span>(tast)                                   <span class="hljs-comment">-- ny linje</span></code></pre>
+
 <p>Når du kjører programmet ditt nå blir programmet stående og vente til du trykker en tast. Deretter skrives teksten <strong>key</strong> samt et tall til skjermen. Teksten <strong>key</strong> betyr bare at det var en taste-hendelse som skjedde. Dette er ikke så veldig interessant for oss nå, men kan være nyttig i andre programmet om man lytter på flere forskjellige hendelser.</p>
 <p>Tallet vi fikk er derimot veldig viktig. Hver tast på tastaturet har sin egen tastekode. Prøv å kjøre programmet flere ganger, ser du at om du trykker samme tast får du samme tall tilbake. For eksempel er <code>A</code> alltid 30, mens <code>pil opp</code> alltid er 200.</p></li>
 <li><p>Vi trenger heldigvis ikke huske disse kodene. Biblioteket <code>keys</code> kjenner alle disse, og gjør at vi kan skrive for eksempel <code>keys.q</code> for å representere <code>Q</code>-tasten. Endre programmet ditt igjen:</p>
-<pre class="sourceCode lua"><code class="sourceCode lua"><span class="kw">local</span> x <span class="ot">=</span> <span class="dv">20</span>
-<span class="kw">local</span> y <span class="ot">=</span> <span class="dv">10</span>
+<pre><code class="hljs lua"><span class="hljs-keyword">local</span> x = <span class="hljs-number">20</span>
+<span class="hljs-keyword">local</span> y = <span class="hljs-number">10</span>
 
-term<span class="ot">.</span>clear<span class="ot">()</span>
-term<span class="ot">.</span>setCursorPos<span class="ot">(</span>x<span class="ot">,</span> y<span class="ot">)</span>
-<span class="fu">print</span><span class="ot">(</span><span class="st">&#39;O&#39;</span><span class="ot">)</span>
+term.clear()
+term.setCursorPos(x, y)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">'O'</span>)
 
-<span class="kw">local</span> hendelse<span class="ot">,</span> tast <span class="ot">=</span> os<span class="ot">.</span>pullEvent<span class="ot">(</span><span class="st">&#39;key&#39;</span><span class="ot">)</span>
-<span class="kw">if</span> tast <span class="ot">==</span> keys<span class="ot">.</span>q <span class="kw">then</span>                        <span class="co">-- ny linje</span>
-    <span class="fu">print</span><span class="ot">(</span><span class="st">&#39;Du trykket Q&#39;</span><span class="ot">)</span>                     <span class="co">-- ny linje</span>
-<span class="kw">else</span>                                          <span class="co">-- ny linje</span>
-    <span class="fu">print</span><span class="ot">(</span><span class="st">&#39;Du trykket ikke Q&#39;</span><span class="ot">)</span>                <span class="co">-- ny linje</span>
-<span class="kw">end</span>                                           <span class="co">-- ny linje</span></code></pre></li>
+<span class="hljs-keyword">local</span> hendelse, tast = <span class="hljs-built_in">os</span>.pullEvent(<span class="hljs-string">'key'</span>)
+<span class="hljs-keyword">if</span> tast == keys.q <span class="hljs-keyword">then</span>                        <span class="hljs-comment">-- ny linje</span>
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">'Du trykket Q'</span>)                     <span class="hljs-comment">-- ny linje</span>
+<span class="hljs-keyword">else</span>                                          <span class="hljs-comment">-- ny linje</span>
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">'Du trykket ikke Q'</span>)                <span class="hljs-comment">-- ny linje</span>
+<span class="hljs-keyword">end</span>                                           <span class="hljs-comment">-- ny linje</span></code></pre>
+</li>
 <li><p>Vi kan nå lage en løkke hvor vi alltid sjekker hvilken tast som er trykket. Dersom tasten <code>Q</code> trykkes avslutter vi løkken med <code>break</code>.</p>
-<pre class="sourceCode lua"><code class="sourceCode lua"><span class="kw">local</span> x <span class="ot">=</span> <span class="dv">20</span>
-<span class="kw">local</span> y <span class="ot">=</span> <span class="dv">10</span>
+<pre><code class="hljs lua"><span class="hljs-keyword">local</span> x = <span class="hljs-number">20</span>
+<span class="hljs-keyword">local</span> y = <span class="hljs-number">10</span>
 
-<span class="kw">while</span> <span class="kw">true</span> <span class="kw">do</span>                                 <span class="co">-- ny linje</span>
-    term<span class="ot">.</span>clear<span class="ot">()</span>
-    term<span class="ot">.</span>setCursorPos<span class="ot">(</span>x<span class="ot">,</span> y<span class="ot">)</span>
-    <span class="fu">print</span><span class="ot">(</span><span class="st">&#39;O&#39;</span><span class="ot">)</span>
+<span class="hljs-keyword">while</span> <span class="hljs-keyword">true</span> <span class="hljs-keyword">do</span>                                 <span class="hljs-comment">-- ny linje</span>
+    term.clear()
+    term.setCursorPos(x, y)
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">'O'</span>)
 
-    <span class="kw">local</span> hendelse<span class="ot">,</span> tast <span class="ot">=</span> os<span class="ot">.</span>pullEvent<span class="ot">(</span><span class="st">&#39;key&#39;</span><span class="ot">)</span>
-    <span class="kw">if</span> tast <span class="ot">==</span> keys<span class="ot">.</span>q <span class="kw">then</span>
-        <span class="kw">break</span>                                 <span class="co">-- endret linje</span>
-    <span class="kw">end</span>
-<span class="kw">end</span>                                           <span class="co">-- ny linje</span></code></pre>
+    <span class="hljs-keyword">local</span> hendelse, tast = <span class="hljs-built_in">os</span>.pullEvent(<span class="hljs-string">'key'</span>)
+    <span class="hljs-keyword">if</span> tast == keys.q <span class="hljs-keyword">then</span>
+        <span class="hljs-keyword">break</span>                                 <span class="hljs-comment">-- endret linje</span>
+    <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span>                                           <span class="hljs-comment">-- ny linje</span></code></pre>
+
 <p>Når du kjører dette programmet vil det tilsynelatende ikke skje noe før du trykker <code>Q</code>, siden det er den eneste hendelsen vi har kode som reagerer på.</p></li>
 <li><p>Vi er nå klare til å sjekke om piltastene trykkes, og flytte figuren rundt på skjermen. For å gjøre dette trenger vi bare å endre verdiene av <code>x</code> og <code>y</code> avhengig av hvilken piltast som trykkes.</p>
-<pre class="sourceCode lua"><code class="sourceCode lua"><span class="kw">local</span> x <span class="ot">=</span> <span class="dv">20</span>
-<span class="kw">local</span> y <span class="ot">=</span> <span class="dv">10</span>
+<pre><code class="hljs lua"><span class="hljs-keyword">local</span> x = <span class="hljs-number">20</span>
+<span class="hljs-keyword">local</span> y = <span class="hljs-number">10</span>
 
-<span class="kw">while</span> <span class="kw">true</span> <span class="kw">do</span>
-    term<span class="ot">.</span>clear<span class="ot">()</span>
-    term<span class="ot">.</span>setCursorPos<span class="ot">(</span>x<span class="ot">,</span> y<span class="ot">)</span>
-    <span class="fu">print</span><span class="ot">(</span><span class="st">&#39;O&#39;</span><span class="ot">)</span>
+<span class="hljs-keyword">while</span> <span class="hljs-keyword">true</span> <span class="hljs-keyword">do</span>
+    term.clear()
+    term.setCursorPos(x, y)
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">'O'</span>)
 
-    <span class="kw">local</span> hendelse<span class="ot">,</span> tast <span class="ot">=</span> os<span class="ot">.</span>pullEvent<span class="ot">(</span><span class="st">&#39;key&#39;</span><span class="ot">)</span>
-    <span class="kw">if</span> tast <span class="ot">==</span> keys<span class="ot">.</span>q <span class="kw">then</span>
-        <span class="kw">break</span>
-    <span class="kw">end</span>
+    <span class="hljs-keyword">local</span> hendelse, tast = <span class="hljs-built_in">os</span>.pullEvent(<span class="hljs-string">'key'</span>)
+    <span class="hljs-keyword">if</span> tast == keys.q <span class="hljs-keyword">then</span>
+        <span class="hljs-keyword">break</span>
+    <span class="hljs-keyword">end</span>
 
-    <span class="kw">if</span> tast <span class="ot">==</span> keys<span class="ot">.</span>right <span class="kw">then</span>                <span class="co">-- ny linje</span>
-        x <span class="ot">=</span> x <span class="ot">+</span> <span class="dv">1</span>                             <span class="co">-- ny linje</span>
-    <span class="kw">end</span>                                       <span class="co">-- ny linje</span>
-<span class="kw">end</span></code></pre>
+    <span class="hljs-keyword">if</span> tast == keys.right <span class="hljs-keyword">then</span>                <span class="hljs-comment">-- ny linje</span>
+        x = x + <span class="hljs-number">1</span>                             <span class="hljs-comment">-- ny linje</span>
+    <span class="hljs-keyword">end</span>                                       <span class="hljs-comment">-- ny linje</span>
+<span class="hljs-keyword">end</span></code></pre>
+
 <p>Når du kjører dette programmet vil du se at du kan bruke <code>pil høyre</code> til å bevege figuren mot høyre.</p></li>
 </ul>
 <section id="prøv-selv" class="level3 try">
@@ -91,26 +104,27 @@ term<span class="ot">.</span>setCursorPos<span class="ot">(</span>x<span class="
 <h2>Sjekkliste</h2>
 <ul>
 <li><p>Til slutt vil vi legge til en skatt som figuren vår skal lete etter. Vi bruker tilfeldige tall for å bestemme hvor skatten skal ligge. Endre begynnelsen av programmet ditt som følger:</p>
-<pre class="sourceCode lua"><code class="sourceCode lua"><span class="kw">local</span> x <span class="ot">=</span> <span class="dv">20</span>
-<span class="kw">local</span> y <span class="ot">=</span> <span class="dv">10</span>
-<span class="kw">local</span> skattX <span class="ot">=</span> <span class="fu">math.random</span><span class="ot">(</span><span class="dv">1</span><span class="ot">,</span> <span class="dv">50</span><span class="ot">)</span>             <span class="co">-- ny linje</span>
-<span class="kw">local</span> skattY <span class="ot">=</span> <span class="fu">math.random</span><span class="ot">(</span><span class="dv">1</span><span class="ot">,</span> <span class="dv">18</span><span class="ot">)</span>             <span class="co">-- ny linje</span>
+<pre><code class="hljs lua"><span class="hljs-keyword">local</span> x = <span class="hljs-number">20</span>
+<span class="hljs-keyword">local</span> y = <span class="hljs-number">10</span>
+<span class="hljs-keyword">local</span> skattX = <span class="hljs-built_in">math</span>.random(<span class="hljs-number">1</span>, <span class="hljs-number">50</span>)             <span class="hljs-comment">-- ny linje</span>
+<span class="hljs-keyword">local</span> skattY = <span class="hljs-built_in">math</span>.random(<span class="hljs-number">1</span>, <span class="hljs-number">18</span>)             <span class="hljs-comment">-- ny linje</span>
 
-<span class="kw">while</span> <span class="kw">true</span> <span class="kw">do</span>
-    term<span class="ot">.</span>clear<span class="ot">()</span>
-    term<span class="ot">.</span>setCursorPos<span class="ot">(</span>skattX<span class="ot">,</span> skattY<span class="ot">)</span>         <span class="co">-- ny linje</span>
-    <span class="fu">print</span><span class="ot">(</span><span class="st">&#39;X&#39;</span><span class="ot">)</span>                                <span class="co">-- ny linje</span>
-    term<span class="ot">.</span>setCursorPos<span class="ot">(</span>x<span class="ot">,</span> y<span class="ot">)</span>
-    <span class="fu">print</span><span class="ot">(</span><span class="st">&#39;O&#39;</span><span class="ot">)</span>
+<span class="hljs-keyword">while</span> <span class="hljs-keyword">true</span> <span class="hljs-keyword">do</span>
+    term.clear()
+    term.setCursorPos(skattX, skattY)         <span class="hljs-comment">-- ny linje</span>
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">'X'</span>)                                <span class="hljs-comment">-- ny linje</span>
+    term.setCursorPos(x, y)
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">'O'</span>)
 
-    <span class="kw">if</span> x <span class="ot">==</span> skattX <span class="kw">and</span> y <span class="ot">==</span> skattY <span class="kw">then</span>       <span class="co">-- ny linje</span>
-        term<span class="ot">.</span>setCursorPos<span class="ot">(</span><span class="dv">1</span><span class="ot">,</span> <span class="dv">1</span><span class="ot">)</span>               <span class="co">-- ny linje</span>
-        <span class="fu">print</span><span class="ot">(</span><span class="st">&#39;Du fant skatten!&#39;</span><span class="ot">)</span>             <span class="co">-- ny linje</span>
-        <span class="kw">break</span>                                 <span class="co">-- ny linje</span>
-    <span class="kw">end</span>                                       <span class="co">-- ny linje</span>
+    <span class="hljs-keyword">if</span> x == skattX <span class="hljs-keyword">and</span> y == skattY <span class="hljs-keyword">then</span>       <span class="hljs-comment">-- ny linje</span>
+        term.setCursorPos(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>)               <span class="hljs-comment">-- ny linje</span>
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">'Du fant skatten!'</span>)             <span class="hljs-comment">-- ny linje</span>
+        <span class="hljs-keyword">break</span>                                 <span class="hljs-comment">-- ny linje</span>
+    <span class="hljs-keyword">end</span>                                       <span class="hljs-comment">-- ny linje</span>
 
-    <span class="kw">local</span> hendelse<span class="ot">,</span> tast <span class="ot">=</span> os<span class="ot">.</span>pullEvent<span class="ot">(</span><span class="st">&#39;key&#39;</span><span class="ot">)</span>
-    <span class="co">-- resten av programmet er som tidligere</span></code></pre>
+    <span class="hljs-keyword">local</span> hendelse, tast = <span class="hljs-built_in">os</span>.pullEvent(<span class="hljs-string">'key'</span>)
+    <span class="hljs-comment">-- resten av programmet er som tidligere</span></code></pre>
+
 <p>Prøv spillet! Fungerer det som du hadde trodd? Klarer du å kanskje legge til flere skatter?</p></li>
 </ul>
 <section id="prøv-selv-1" class="level3 try">
@@ -157,40 +171,42 @@ term<span class="ot">.</span>setCursorPos<span class="ot">(</span>x<span class="
 <h2>Sjekkliste</h2>
 <ul>
 <li><p>Om du ikke allerede har gjort det: Sett opp en datamaskin ved siden av en dør og legg inn passord-programmet datamaskinen, det vil si skriv <code>edit passord</code> og skriv inn følgende:</p>
-<pre class="sourceCode lua"><code class="sourceCode lua"><span class="kw">local</span> passord <span class="ot">=</span> <span class="st">&#39;kodeklubben&#39;</span>
+<pre><code class="hljs lua"><span class="hljs-keyword">local</span> passord = <span class="hljs-string">'kodeklubben'</span>
 
-<span class="kw">while</span> <span class="kw">true</span> <span class="kw">do</span>
-    term<span class="ot">.</span>clear<span class="ot">()</span>
-    term<span class="ot">.</span>setCursorPos<span class="ot">(</span><span class="dv">1</span><span class="ot">,</span> <span class="dv">1</span><span class="ot">)</span>
-    <span class="fu">print</span><span class="ot">(</span><span class="st">&#39;Hva er passordet?&#39;</span><span class="ot">)</span>
-    svar <span class="ot">=</span> <span class="fu">read</span><span class="ot">(</span><span class="st">&#39;*&#39;</span><span class="ot">)</span>
+<span class="hljs-keyword">while</span> <span class="hljs-keyword">true</span> <span class="hljs-keyword">do</span>
+    term.clear()
+    term.setCursorPos(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>)
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">'Hva er passordet?'</span>)
+    svar = read(<span class="hljs-string">'*'</span>)
 
-    <span class="kw">if</span> svar <span class="ot">==</span> passord <span class="kw">then</span>
-        redstone<span class="ot">.</span>setOutput<span class="ot">(</span><span class="st">&#39;left&#39;</span><span class="ot">,</span> <span class="kw">true</span><span class="ot">)</span>
-        sleep<span class="ot">(</span><span class="dv">5</span><span class="ot">)</span>
-        redstone<span class="ot">.</span>setOutput<span class="ot">(</span><span class="st">&#39;left&#39;</span><span class="ot">,</span> <span class="kw">false</span><span class="ot">)</span>
-    <span class="kw">end</span>
-<span class="kw">end</span></code></pre>
+    <span class="hljs-keyword">if</span> svar == passord <span class="hljs-keyword">then</span>
+        redstone.setOutput(<span class="hljs-string">'left'</span>, <span class="hljs-keyword">true</span>)
+        sleep(<span class="hljs-number">5</span>)
+        redstone.setOutput(<span class="hljs-string">'left'</span>, <span class="hljs-keyword">false</span>)
+    <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span></code></pre>
+
 <p>Kjør programmet, og sjekk at det virker som det skal.</p></li>
 <li><p>Når en datamaskin starter sjekker den først om det finnes et program som heter <code>startup</code> (<em>startup</em> betyr <em>oppstart</em>). Om den finner dette programmet kjøres dette før noe annet skjer. Det betyr at om vi kaller passord-programmet vårt for <strong>startup</strong> så vil det kjøre automatisk.</p>
 <p>Skriv <code>move passord startup</code>. Dette endre navnet på passord-programmet vårt. Vi kan nå starte datamaskinen på nytt ved å skrive <code>reboot</code>. Datamaskinen vil nå direkte spørre deg om passordet.</p></li>
 <li><p>Trykk <code>Ctrl-T</code> for å stanse passord-programmet. At vi kan bruke <code>Ctrl-T</code> til å avslutte programmer er noe <code>os.pullEvent</code> gjør for oss automatisk uten at vi trenger å gjøre noe. Dersom vi ikke vil at dette skal være mulig kan vi bytte ut <code>os.pullEvent</code> med noe som heter <code>os.pullEventRaw</code>. Disse fungerer omtrent på samme måte, men den siste bryr seg ikke om <code>Ctrl-T</code>.</p>
 <p>Skriv <code>edit startup</code> og legg til en linje øverst i koden din:</p>
-<pre class="sourceCode lua"><code class="sourceCode lua">os<span class="ot">.</span>pullEvent <span class="ot">=</span> os<span class="ot">.</span>pullEventRaw                <span class="co">-- ny linje</span>
-<span class="kw">local</span> passord <span class="ot">=</span> <span class="st">&#39;kodeklubben&#39;</span>
+<pre><code class="hljs lua"><span class="hljs-built_in">os</span>.pullEvent = <span class="hljs-built_in">os</span>.pullEventRaw                <span class="hljs-comment">-- ny linje</span>
+<span class="hljs-keyword">local</span> passord = <span class="hljs-string">'kodeklubben'</span>
 
-<span class="kw">while</span> <span class="kw">true</span> <span class="kw">do</span>
-    term<span class="ot">.</span>clear<span class="ot">()</span>
-    term<span class="ot">.</span>setCursorPos<span class="ot">(</span><span class="dv">1</span><span class="ot">,</span> <span class="dv">1</span><span class="ot">)</span>
-    <span class="fu">print</span><span class="ot">(</span><span class="st">&#39;Hva er passordet?&#39;</span><span class="ot">)</span>
-    svar <span class="ot">=</span> <span class="fu">read</span><span class="ot">(</span><span class="st">&#39;*&#39;</span><span class="ot">)</span>
+<span class="hljs-keyword">while</span> <span class="hljs-keyword">true</span> <span class="hljs-keyword">do</span>
+    term.clear()
+    term.setCursorPos(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>)
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">'Hva er passordet?'</span>)
+    svar = read(<span class="hljs-string">'*'</span>)
 
-    <span class="kw">if</span> svar <span class="ot">==</span> passord <span class="kw">then</span>
-        redstone<span class="ot">.</span>setOutput<span class="ot">(</span><span class="st">&#39;left&#39;</span><span class="ot">,</span> <span class="kw">true</span><span class="ot">)</span>
-        sleep<span class="ot">(</span><span class="dv">5</span><span class="ot">)</span>
-        redstone<span class="ot">.</span>setOutput<span class="ot">(</span><span class="st">&#39;left&#39;</span><span class="ot">,</span> <span class="kw">false</span><span class="ot">)</span>
-    <span class="kw">end</span>
-<span class="kw">end</span></code></pre></li>
+    <span class="hljs-keyword">if</span> svar == passord <span class="hljs-keyword">then</span>
+        redstone.setOutput(<span class="hljs-string">'left'</span>, <span class="hljs-keyword">true</span>)
+        sleep(<span class="hljs-number">5</span>)
+        redstone.setOutput(<span class="hljs-string">'left'</span>, <span class="hljs-keyword">false</span>)
+    <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span></code></pre>
+</li>
 <li><p>Du kan nå starte datamaskinen på nytt igjen med <code>reboot</code>. Nå har du en datamaskin som bare spør om passord hele tiden!</p>
 <p>Vær litt forsiktig med dette siden det ikke er noen enkel måte å få datamaskinen til å gjøre noe annet enn å spørre om passord! Men det du lærer i de to neste stegene kan være nyttig.</p></li>
 </ul>
@@ -209,9 +225,10 @@ term<span class="ot">.</span>setCursorPos<span class="ot">(</span>x<span class="
 <li><p>Åpne diskettstasjonen ved å høyre-klikke på den. Sett inn disketten ved å flytte den opp til den ledige slot’en øverst.</p></li>
 <li><p>Start datamaskinen din ved å høyre-klikke på den. Skriv <code>dir</code>. Du vil se at det nå finnes en ny katalog som heter <strong>disk</strong>. Dette er disketten vi nettopp satte inn.</p></li>
 <li><p>La oss lage et enkelt program. Skriv <code>edit navn</code> og skriv inn følgende:</p>
-<pre class="sourceCode lua"><code class="sourceCode lua"><span class="fu">print</span><span class="ot">(</span><span class="st">&#39;Hva heter du?&#39;</span><span class="ot">)</span>
-navn <span class="ot">=</span> <span class="fu">read</span><span class="ot">()</span>
-<span class="fu">print</span><span class="ot">(</span><span class="st">&#39;Hei, &#39;</span> <span class="ot">..</span> navn<span class="ot">)</span></code></pre>
+<pre><code class="hljs lua"><span class="hljs-built_in">print</span>(<span class="hljs-string">'Hva heter du?'</span>)
+navn = read()
+<span class="hljs-built_in">print</span>(<span class="hljs-string">'Hei, '</span> .. navn)</code></pre>
+
 <p>Test at programmet virker ved å skrive <code>navn</code>.</p></li>
 <li><p>Vi kan nå kopiere dette programmet over til disketten ved å skrive <code>copy navn disk</code>.</p></li>
 <li><p>Vi kan nå ta med oss dette programmet til en annen datamaskin:</p>
@@ -268,11 +285,12 @@ navn <span class="ot">=</span> <span class="fu">read</span><span class="ot">()</
 <li><p>Denne <strong>fun</strong>-katalogen inneholder flere spill og programmer. La oss se på <strong>hello</strong> som er det enkleste programmet. Dette er en variant av <strong>heisann</strong> som vi skrev tidligere.</p>
 <p>Prøv først å kjøre programmet ved å skrive <code>hello</code>. Teksten <strong>Hello World!</strong> skrives til skjermen, ett tegn om gangen.</p></li>
 <li><p>La oss se på koden til <strong>hello</strong>. Skriv <code>edit hello</code>. Du vil se det følgende:</p>
-<pre class="sourceCode lua"><code class="sourceCode lua"><span class="kw">if</span> term<span class="ot">.</span>isColour<span class="ot">()</span> <span class="kw">then</span>
-    term<span class="ot">.</span>setTextColour<span class="ot">(</span> <span class="dv">2</span><span class="ot">^</span><span class="fu">math.random</span><span class="ot">(</span><span class="dv">0</span><span class="ot">,</span><span class="dv">15</span><span class="ot">)</span> <span class="ot">)</span>
-<span class="kw">end</span>
-textutils<span class="ot">.</span>slowPrint<span class="ot">(</span> <span class="st">&quot;Hello World!&quot;</span> <span class="ot">)</span>
-term<span class="ot">.</span>setTextColour<span class="ot">(</span> colours<span class="ot">.</span>white <span class="ot">)</span></code></pre>
+<pre><code class="hljs lua"><span class="hljs-keyword">if</span> term.isColour() <span class="hljs-keyword">then</span>
+    term.setTextColour( <span class="hljs-number">2</span>^<span class="hljs-built_in">math</span>.random(<span class="hljs-number">0</span>,<span class="hljs-number">15</span>) )
+<span class="hljs-keyword">end</span>
+textutils.slowPrint( <span class="hljs-string">"Hello World!"</span> )
+term.setTextColour( colours.white )</code></pre>
+
 <p>Ser du hvilken kodelinje det er som har ansvaret for å skrive teksten til skjermen?</p></li>
 <li><p>Nå vil vi endre teksten <strong>Hello World!</strong> til noe annet. Men om du prøver å bare endre på teksten vil du oppdage at det ikke går an. Videre, om du trykker <code>Ctrl</code> vil du se at valget <code>Save</code> er borte. Dette er fordi vi ser på en fil som ligger i <strong>rom</strong>, det skrivebeskyttede minnet.</p></li>
 <li><p>Hvis vi vil lage vår egen versjon av <strong>hello</strong> må vi først kopiere filen ut av <strong>rom</strong>. Skriv <code>copy hello ../../../</code>. Den litt mystiske rekken av <code>..</code> og <code>/</code> betyr at vi kopierer filen tre nivåer opp. Husk at <code>..</code> betydde at man går en katalog opp.</p></li>
@@ -299,29 +317,31 @@ term<span class="ot">.</span>setTextColour<span class="ot">(</span> colours<span
 <ul>
 <li><p>Lag og start en <strong>Advanced Computer</strong>. De viktigste ekstra mulighetene på denne typen datamaskin er at den kan vise farger og du kan bruke musen.</p></li>
 <li><p>La oss lage et enkelt tegneprogram. Skriv <code>edit tegne</code>, og skriv</p>
-<pre class="sourceCode lua"><code class="sourceCode lua">term<span class="ot">.</span>clear<span class="ot">()</span>
+<pre><code class="hljs lua">term.clear()
 
-<span class="kw">while</span> <span class="kw">true</span> <span class="kw">do</span>
-    <span class="kw">local</span> hendelse<span class="ot">,</span> knapp<span class="ot">,</span> x<span class="ot">,</span> y <span class="ot">=</span> os<span class="ot">.</span>pullEvent<span class="ot">(</span><span class="st">&#39;mouse_click&#39;</span><span class="ot">)</span>
-    <span class="fu">print</span><span class="ot">(</span><span class="st">&#39;Du klikket &#39;</span> <span class="ot">..</span> knapp<span class="ot">)</span>
-    <span class="fu">print</span><span class="ot">(</span><span class="st">&#39;Posisjon: x = &#39;</span> <span class="ot">..</span> x <span class="ot">..</span> <span class="st">&#39;, y = &#39;</span> <span class="ot">..</span> y<span class="ot">)</span>
-<span class="kw">end</span></code></pre>
+<span class="hljs-keyword">while</span> <span class="hljs-keyword">true</span> <span class="hljs-keyword">do</span>
+    <span class="hljs-keyword">local</span> hendelse, knapp, x, y = <span class="hljs-built_in">os</span>.pullEvent(<span class="hljs-string">'mouse_click'</span>)
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">'Du klikket '</span> .. knapp)
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">'Posisjon: x = '</span> .. x .. <span class="hljs-string">', y = '</span> .. y)
+<span class="hljs-keyword">end</span></code></pre>
+
 <p>Kjør programmet og prøv å klikk litt rundt omkring på skjermen. Bruk både venstre og høyre museknapp. Skjønner du hvordan museklikk-hendelser fungerer? Bruk <code>Ctrl-T</code> for å avslutte programmet.</p></li>
 <li><p>La oss legge til litt kode som tegner på skjermen når du venstre-klikker. Vi kan også bruke høyre-klikk til å viske vekk det som er tegnet. Endre koden til</p>
-<pre class="sourceCode lua"><code class="sourceCode lua">term<span class="ot">.</span>clear<span class="ot">()</span>
+<pre><code class="hljs lua">term.clear()
 
-<span class="kw">while</span> <span class="kw">true</span> <span class="kw">do</span>
-    <span class="kw">local</span> hendelse<span class="ot">,</span> knapp<span class="ot">,</span> x<span class="ot">,</span> y <span class="ot">=</span> os<span class="ot">.</span>pullEvent<span class="ot">(</span><span class="st">&#39;mouse_click&#39;</span><span class="ot">)</span>
-    term<span class="ot">.</span>setCursorPos<span class="ot">(</span>x<span class="ot">,</span> y<span class="ot">)</span>                   <span class="co">-- ny linje</span>
+<span class="hljs-keyword">while</span> <span class="hljs-keyword">true</span> <span class="hljs-keyword">do</span>
+    <span class="hljs-keyword">local</span> hendelse, knapp, x, y = <span class="hljs-built_in">os</span>.pullEvent(<span class="hljs-string">'mouse_click'</span>)
+    term.setCursorPos(x, y)                   <span class="hljs-comment">-- ny linje</span>
 
-    <span class="kw">if</span> knapp <span class="ot">==</span> <span class="dv">1</span> <span class="kw">then</span>                        <span class="co">-- ny linje</span>
-        <span class="fu">print</span><span class="ot">(</span><span class="st">&#39;#&#39;</span><span class="ot">)</span>                            <span class="co">-- ny linje</span>
-    <span class="kw">end</span>                                       <span class="co">-- ny linje</span>
+    <span class="hljs-keyword">if</span> knapp == <span class="hljs-number">1</span> <span class="hljs-keyword">then</span>                        <span class="hljs-comment">-- ny linje</span>
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">'#'</span>)                            <span class="hljs-comment">-- ny linje</span>
+    <span class="hljs-keyword">end</span>                                       <span class="hljs-comment">-- ny linje</span>
 
-    <span class="kw">if</span> knapp <span class="ot">==</span> <span class="dv">2</span> <span class="kw">then</span>                        <span class="co">-- ny linje</span>
-        <span class="fu">print</span><span class="ot">(</span><span class="st">&#39; &#39;</span><span class="ot">)</span>                            <span class="co">-- ny linje</span>
-    <span class="kw">end</span>                                       <span class="co">-- ny linje</span>
-<span class="kw">end</span></code></pre></li>
+    <span class="hljs-keyword">if</span> knapp == <span class="hljs-number">2</span> <span class="hljs-keyword">then</span>                        <span class="hljs-comment">-- ny linje</span>
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">' '</span>)                            <span class="hljs-comment">-- ny linje</span>
+    <span class="hljs-keyword">end</span>                                       <span class="hljs-comment">-- ny linje</span>
+<span class="hljs-keyword">end</span></code></pre>
+</li>
 </ul>
 <section id="prøv-selv-4" class="level3 try">
 <h3>Prøv selv</h3>
@@ -332,4 +352,4 @@ term<span class="ot">.</span>setTextColour<span class="ot">(</span> colours<span
 </section>
 </section>
 </div></div><div class="col-xs-12"><div id="footer" class="clearfix"><div class="license"><p><strong>Lisens:</strong></p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/deed.no">CC BY-SA 4.0</a></div><div class="author"><p><strong>Forfatter:</strong></p><p>Geir Arne Hjelle</p>
-</div></div></div></div></div><script src="../../assets/script.min.js"></script></body></html>
+</div></div></div></div></div><div class="intro-question modal fade"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title">Hei der!</h4></div><div class="modal-body"><p>Ser ut som dette er ditt første besøk, vil du ha en omvisning?</p></div><div class="modal-footer"><button class="btn btn-success">Ja!</button><button data-dismiss="modal" class="btn btn-danger">Nei takk</button></div></div></div></div><script src="../../assets/vendor.min.js"></script><script src="../../assets/script.min.js"></script></body></html>

@@ -1,0 +1,87 @@
+<html><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Del spillet ditt med andre | Kodeklubben</title><link href="../../assets/style.min.css" rel="stylesheet"/><script type="text/javascript">// convert url relative to current file
+// ex: python/index.html -> ../python/index.html
+function relative(url) {
+  var urlRoot = '../..';
+  if (urlRoot !== '') {
+    return urlRoot + '/' + url;
+  }
+  return url;
+}</script></head><body><div class="container"><div class="row"><div class="col-xs-12"><div class="top-menu"><a href="../../index.html" class="btn btn-default"><span aria-hidden="true" class="glyphicon glyphicon-home"></span><span class="hidden-xs"> Forside</span></a><form class="search"><input type="text" placeholder="Søk" class="form-control"/></form><a title="Ta en omvisning på siden" data-placement="bottom" href="#" class="intro"></a><div class="links"><a href="http://www.kidsakoder.no" class="btn btn-default hidden-xs"><span>Lær Kidsa Koding</span></a></div></div></div><div class="search"><div class="results"><h1>Søkeresultat</h1></div></div><div class="col-xs-12"><header class="clearfix"><img src="../../assets/img/ccno_logo.png" class="logo hidden-xs"/><h1 class="title">Del spillet ditt med andre</h1><div class="lesson-icons"><div class="level"><img title="Level 4" src="../../assets/img/level4.png"/><span>Ekspert</span></div><div class="course"><img src="../logo-white.png"/><span>Python</span></div><div class="pdf"><a href="/python/del_spillet_ditt_med_andre/del_spillet_ditt_med_andre.pdf" title="Last ned PDF" class="download"><span class="glyphicon glyphicon-save-file"></span></a><span>PDF</span></div></div></header></div><div class="col-xs-12"><div class="content"><section id="introduksjon" class="level1 intro">
+<h1>Introduksjon</h1>
+<p>Python har en flott egenskap i det at den er plattformuavhengig. Det betyr at om du skriver et Python-program på Windows kan andre som bruker for eksempel Mac eller Linux kjøre det samme programmet på sin maskin. Det som kan være et problem er at om du vil dele et spill du har laget med noen venner, så må de også installere Python for å spille det. I dag skal vi se på hvordan vi kan pakke sammen et Python-program slik at det kan brukes også om noen ikke har Python installert selv.</p>
+</section>
+<section id="steg-1-installasjon-av-cx_freeze" class="level1 activity">
+<h1>Steg 1: Installasjon av cx_freeze</h1>
+<p>For å gjøre om et enkelt Python-program til noe som kan installeres på en annen maskin skal vi bruke en pakke som heter <code>cx_freeze</code> (tenk at vi <em>fryser</em> Python-programmet inn i en installasjonspakke). Denne pakken er <em>ikke</em> en del av standard Python, slik at vi må installere den på egen hånd.</p>
+<section id="sjekkliste" class="level2 check">
+<h2>Sjekkliste</h2>
+<ul>
+<li><p>På <strong>Windows</strong>: Åpne et kommandovindu ved å skrive <code>cmd</code> enten i det lille søkefeltet som dukker opp når du klikker start-knappen, eller ved å bare å begynne å skrive på startsiden.</p></li>
+<li><p>På <strong>Mac</strong> eller <strong>Linux</strong>: Åpne en terminal. På Mac gjør du dette ved å trykke command-knappen samtidig som mellomromtasten, og deretter skrive <code>terminal</code>. På Linux trykker du super-knappen (som regel windows-knappen), og deretter skriver du <code>terminal</code>.</p></li>
+<li><p>Skriv den følgende kommandoen for å laste ned og installere siste versjon av <code>cx_freeze</code>:</p>
+<pre><code>pip <span class="hljs-keyword">install</span> cx_Freeze</code></pre>
+</li>
+</ul>
+</section>
+</section>
+<section id="steg-2-lag-en-beskrivelse-av-programmet-ditt" class="level1 activity">
+<h1>Steg 2: Lag en beskrivelse av programmet ditt</h1>
+<p>For at <code>cx_freeze</code> skal vite hvilke program og filer vi vil pakke sammen må vi lage en beskrivelsesfil.</p>
+<p>Vi antar nå at du har et laget et Python-program som heter <code>hello.py</code>. Hvis programmet ditt heter noe annet så bytt ut referansene til <code>hello.py</code> med navnet på ditt program nedenfor.</p>
+<section id="sjekkliste-1" class="level2 check">
+<h2>Sjekkliste</h2>
+<ul>
+<li><p>I den samme katalogen som <code>hello.py</code> (eller programmet ditt) ligger, lag en fil som heter <code>setup.py</code> og ser ut som følger (husk å endre navnet på programmet om nødvendig, og oppdater også <code>description</code> og <code>author</code> slik at de blir riktige):</p>
+<pre><code class="hljs python"><span class="hljs-keyword">from</span> cx_Freeze <span class="hljs-keyword">import</span> setup, Executable
+
+executables = [
+        Executable(<span class="hljs-string">'hello.py'</span>),
+]
+
+setup(name=<span class="hljs-string">'hello'</span>,
+      version=<span class="hljs-string">'0.1'</span>,
+      description=<span class="hljs-string">'Mitt lille Python-program'</span>,
+      author=<span class="hljs-string">'Geir Arne Hjelle'</span>,
+      executables=executables,
+      )</code></pre>
+</li>
+</ul>
+</section>
+</section>
+<section id="steg-3-pakk-sammen-programmet-ditt" class="level1 activity">
+<h1>Steg 3: Pakk sammen programmet ditt</h1>
+<p>Når vi har beskrevet programmet er vi klare til å pakke det sammen.</p>
+<section id="sjekkliste-2" class="level2 check">
+<h2>Sjekkliste</h2>
+<ul>
+<li><p>Gå tilbake til kommandovinduet eller terminalen du brukte tidligere. Nå skal vi bruke dette til å pakke sammen programmet.</p></li>
+<li><p>Først må vi finne katalogen hvor programmet vårt ligger. Det enkleste vil være å finne programmet i en filutforsker (for eksempel Windows Utforsker eller Finder på Mac). Derifra kan du kopiere <em>katalogstien</em>. Skriv den inn i kommandovinduet eller terminalen med kommandoen <code>cd</code> (<em>change directory</em>) foran. For eksempel</p>
+<pre><code>cd C:<span class="hljs-command">\Hjem</span><span class="hljs-command">\Spill</span>\</code></pre>
+</li>
+<li><p>Nå kan vi skrive kommandoen som pakker ting sammen for oss. Skriv følgende i kommandovinduet eller terminalen:</p>
+<pre><code>python setup<span class="hljs-class">.py</span> build</code></pre>
+
+<p>Dersom dette virker dukker det opp en ny katalog som heter <code>build</code>. Denne katalogen inneholder alt som er nødvendig for å kjøre programmet ditt uten å installere Python. Inne i denne katalogen vil du finne en programfil som du kan kjøre, for eksempel ved å dobbelklikke på den. I eksempelet over vil denne filen hete <code>hello</code>.</p></li>
+</ul>
+</section>
+</section>
+<section id="steg-4-lag-et-enkelt-installasjonsskript" class="level1 activity">
+<h1>Steg 4: Lag et enkelt installasjonsskript</h1>
+<p>På Windows og Mac er det også mulig å lage et installasjonsskript ved hjelp av <code>cx_freeze</code> slik at programmet ditt kan installeres på akkurat samme måte som vanlige programmer.</p>
+<section id="sjekkliste-3" class="level2 check">
+<h2>Sjekkliste</h2>
+<ul>
+<li><p>På <strong>Windows</strong>: Bruk følgende kommando i stedet når du pakker koden din:</p>
+<pre><code>python setup<span class="hljs-class">.py</span> bdist_msi</code></pre>
+
+<p>Dette lager en vanlig Windows-installasjonsfil i katalogen <code>dist</code> som du kan dele med andre.</p></li>
+<li><p>På <strong>Mac</strong>: Det samme kan du gjøre på en Mac med</p>
+<pre><code>python setup<span class="hljs-class">.py</span> bdist_dmg</code></pre>
+
+
+</li>
+</ul>
+</section>
+</section>
+</div></div><div class="col-xs-12"><div id="footer" class="clearfix"><div class="license"><p><strong>Lisens:</strong></p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/deed.no">CC BY-SA 4.0</a></div><div class="author"><p><strong>Forfatter:</strong></p><p>Geir Arne Hjelle</p>
+</div></div></div></div></div><div class="intro-question modal fade"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title">Hei der!</h4></div><div class="modal-body"><p>Ser ut som dette er ditt første besøk, vil du ha en omvisning?</p></div><div class="modal-footer"><button class="btn btn-success">Ja!</button><button data-dismiss="modal" class="btn btn-danger">Nei takk</button></div></div></div></div><script src="../../assets/vendor.min.js"></script><script src="../../assets/script.min.js"></script></body></html>
