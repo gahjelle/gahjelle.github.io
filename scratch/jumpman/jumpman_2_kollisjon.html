@@ -44,6 +44,276 @@ smarte fiender og bevegelige plattformer.</p>
 </li>
 </ul>
 </section>
+<section class="activity" id="steg-1-sensorer">
+<h1 class="activity" id="steg-1-sensorer">Steg 1: Sensorer</h1>
+<p><em>Vi skal nå se hvordan vi kan få mer kontroll på hvordan Jumpman
+berører verden rundt seg. Til dette skal vi lage noen spesielle
+figurer som vi kaller sensorer.</em></p>
+<section class="check" id="sjekkliste">
+<h2 class="check" id="sjekkliste">Sjekkliste</h2>
+<ul>
+<li>
+<p>Hent inn Jumpman-spillet som du laget i
+<a href="jumpman_1_animasjon.html">del 1</a>.</p>
+</li>
+<li>
+<p>Tegn en ny figur som du kaller <code>Sensor - Fot</code>. La denne bestå av en
+kort vannrett strek, omtrent på størrelse med føttene til
+Jumpman-animasjonene.</p>
+<p><figure><img src="sensor_fot.png" alt=""></figure></p>
+</li>
+<li>
+<p>Vi skal nå skrive kode som <em>limer</em> denne sensoren til føttene til
+Jumpman, på samme måte som vi lot <code>Animasjon</code>-figurene følge
+<code>Kontroller</code>-figuren. Lag først en ny variabel, <code class="b">(sensor - fot)</code>, som gjelder <em>for alle figurer</em>. Skriv deretter:</p>
+<pre><code class="blocks">    når jeg mottar [oppdater sensor v]
+    sett [sensor - fot v] til [nei]
+    pek i retning ([retning v] av [Kontroller v])
+    sett x til ([x-posisjon v] av [Kontroller v])
+    sett y til ([y-posisjon v] av [Kontroller v])
+</code></pre>
+</li>
+<li>
+<p>Du la kanskje merke til at meldingen <code>oppdater sensor</code> var ny? Legg
+til både <code class="b">send melding [oppdater sensor v]</code> og <code class="b">send melding [sjekk sensor v]</code> øverst i <code class="blockcontrol">for alltid</code>-løkken på
+scenen.</p>
+</li>
+<li>
+<p>Test spillet ditt. Du skal nå ha en <code>Sensor - Fot</code>-figur som følger
+Jumpman rundt på skjermen. Om figuren ikke ligger ved føttene til
+Jumpman kan du flytte den ved hjelp av
+<img src="../bilder/velg_senterpunkt.png" alt="velg senterpunkt">-knappen under
+<code>Drakter</code>-fanen.</p>
+</li>
+<li>
+<p>Nå skal vi bruke sensoren. Legg til dette skriptet på <code>Sensor - Fot</code>-figuren:</p>
+<pre><code class="blocks">    når jeg mottar [sjekk sensor v]
+    hvis &lt;berører fargen [#009900]?&gt;
+        sett [sensor - fot v] til [ja]
+    slutt
+</code></pre>
+<p>Bytt deretter <em>alle</em> <code class="b">&lt;berører fargen [#009900]?&gt;</code>-klosser på
+<code>Kontroller</code>-figuren med <code class="b">&lt;(sensor - fot) = (ja)&gt;</code>-klosser.</p>
+</li>
+<li>
+<p>Test spillet ditt igjen. Det skal fungere akkurat slik det gjorde
+før vi la til sensoren (i neste steg vil du se hvorfor det likevel
+er nyttig med denne sensor-figuren). Om du er fornøyd kan du skjule
+sensoren ved å gjøre den gjennomsiktig:</p>
+<pre><code class="blocks">    når grønt flagg klikkes
+    sett [gjennomsiktig v] effekt til (100)
+    begrens rotasjon [ikke roter v]
+</code></pre>
+</li>
+</ul>
+</section>
+</section>
+<section class="activity" id="steg-2-mursteiner">
+<h1 class="activity" id="steg-2-mursteiner">Steg 2: Mursteiner</h1>
+<p><em>Vi skal nå lage mursteiner som vi både kan bruke som plattformer, og
+vi kan hoppe i dem nedenfra og få ting til å skje.</em></p>
+<ul>
+<li>
+<p>Lag en ny sensor-figur, <code>Sensor - Hode</code>, som du gir det samme
+<code>oppdater sensor</code>-skriptet som <code>Sensor - Fot</code> (men med den nye
+variabelen <code class="b">(sensor - hode)</code> som gjelder for alle
+figurer). Plasser denne figuren ved toppen av hodet til Jumpman.</p>
+</li>
+<li>
+<p>Den nye hode-sensoren kan vi bruke til å stoppe Jumpman når han
+hopper opp i en plattform. Legg til denne testen på <code>sjekk plattform</code>-skriptet til <code>Kontroller</code>-figuren:</p>
+<pre><code class="blocks">    hvis &lt;&lt;(sensor - hode) = [ja]&gt; og &lt;(fartY) &gt; [0]&gt;&gt;
+        sett [fartY v] til [0]
+    slutt
+</code></pre>
+</li>
+<li>
+<p>Tegn en ny figur som du kaller <code>Murstein</code>. Denne kan gjerne være
+ganske liten. Vi skal snart klone den for å bruke mange mursteiner
+til å lage plattformer med.</p>
+<p><figure><img src="murstein.png" alt=""></figure></p>
+</li>
+<li>
+<p>Først skal vi se hvor lett det nå er for Jumpman å sense mursteinen.
+Lag et skript som sjekker sensorene:</p>
+<pre><code class="blocks">    når jeg mottar [sjekk sensor v]
+    hvis &lt;berører [Sensor - Fot v]?&gt;
+        sett [sensor - fot v] til [ja]
+    slutt
+    hvis &lt;berører [Sensor - Hode v]?&gt;
+        sett [sensor - hode v] til [ja]
+    slutt
+</code></pre>
+</li>
+<li>
+<p>Plasser <code>Murstein</code>-figuren et passende sted og test spillet ditt.
+Stopper Jumpman når han hopper opp i mursteinen?</p>
+</li>
+<li>
+<p>Vi skal nå bruke kloning for å plassere ut flere mursteiner. Lag et
+skript på <code>Murstein</code> som starter med <code class="b">når jeg mottar [startposisjon v]</code>. Skriv så kode som plasserer ut kloner av
+<code>Murstein</code> på spillbrettet. Til dette bruker du stort sett <code class="b">gå til x: () y: ()</code>- og <code class="b">lag klon av [meg v]</code>-klosser.</p>
+<p>Om du vil lage en sammenhengende plattform av mursteiner kan du også
+bruke en <code class="blockcontrol">gjenta</code>-løkke. For eksempel,</p>
+<pre><code class="blocks">    gå til x: (-80) y: (-70)
+    gjenta (5) ganger
+        lag klon av [meg v]
+        endre x med (34)
+    slutt
+</code></pre>
+<p>Tallet i <code class="b">endre x med ()</code>-klossen vil avhenge av hvor bred
+<code>Murstein</code>-figuren din er. Du kan prøve deg frem, eller sjekke
+bredden under <code>Drakter</code>-fanen:</p>
+<p><figure><img src="murstein_bredde.png" alt=""></figure></p>
+</li>
+</ul>
+</section>
+<section class="activity" id="steg-3-fruktsalat-og-andre-superkrefter">
+<h1 class="activity" id="steg-3-fruktsalat-og-andre-superkrefter">Steg 3: Fruktsalat og andre superkrefter!</h1>
+<p><em>I Super Mario kan man hoppe opp i spesielle mursteiner for å finne
+penger, sopper og andre spennende ting. Vi skal nå se hvordan Jumpman
+kan gjøre det samme.</em></p>
+<section class="activity" id="sjekkliste-2">
+<h2 class="activity" id="sjekkliste-2">Sjekkliste</h2>
+<p>Vi vil nå se hvordan vi kan gjemme en fruktsalat inne i en
+murstein. Om Jumpman finner denne og spiser den vil han kunne hoppe
+ekstra høyt. Om du senere vil gjemme andre ting med andre effekter kan
+du gjøre det på omtrent samme måte.</p>
+<ul>
+<li>
+<p>For å endre på hvor høyt Jumpman hopper trenger vi en variabel. Gå
+til <code>Kontroller</code>-figuren, og lag en variabel <code class="b">(hopp)</code> som
+gjelder kun <em>for denne figuren</em>. Legg til en <code class="b">sett [hopp v] til [5]</code>-kloss på <code>startposisjon</code>-skriptet, og bruk denne variabelen
+til å sette <code class="b">(fartY)</code> når pil opp trykkes.</p>
+</li>
+<li>
+<p>Klikk så på <code>Murstein</code>-figuren og lag en ny variabel <code class="b">(spesial)</code>
+som også gjelder kun <em>for denne figuren</em>. Vi vil bruke denne til å
+indikere hva vi har gjemt inne i mursteinen.</p>
+</li>
+<li>
+<p>Legg en <code class="b">sett [spesial v] til [nei]</code>-kloss øverst i
+<code>startposisjon</code>-skriptet. Velg nå en mursteinklone og <code class="b">sett [spesial v] til [fruktsalat]</code> før den lages. Husk å sette
+<code class="b">(spesial)</code> tilbake til <code>nei</code> for resten av mursteinene.</p>
+</li>
+<li>
+<p>Vi skal nå gjøre en endring i <code>sjekk sensor</code>-skriptet til
+<code>Murstein</code>. Lag to variabler, <code class="b">(mursteinX)</code> og
+<code class="b">(mursteinY)</code>, som må gjelde <em>for alle figurer</em>, og legg
+deretter den følgende testen inne i <code class="b">hvis &lt;berører [Sensor - Hode v]?&gt;</code>-testen:</p>
+<pre><code class="blocks">    hvis &lt;ikke &lt;(spesial) = [nei]&gt;&gt;
+        sett [mursteinX v] til (x-posisjon)
+        sett [mursteinY v] til (y-posisjon)
+        send melding (sett sammen [murstein-] (spesial))
+        sett [spesial v] til [nei]
+    slutt
+</code></pre>
+<p>Legg merke til hvordan vi bruker variabelen <code class="b">(spesial)</code> til å
+bestemme hvilken melding som sendes ut. Om for eksempel
+<code class="b">(spesial)</code> er lik <code>fruktsalat</code> vil vi her sende meldingen
+<code>murstein-fruktsalat</code>.</p>
+</li>
+<li>
+<p>Lag nå en ny <code>Fruktsalat</code>-figur. Du kan tegne den selv eller bruke
+<code>Ting/Fruit Salad</code>-figuren i Scratch-biblioteket. La figuren
+<code class="blocklooks">skjule</code> seg på <code>startposisjon</code>-meldingen.</p>
+</li>
+<li>
+<p>Når vi mottar <code>murstein-fruktsalat</code> vil vi lage en klon av
+<code>Fruktsalat</code>-figuren og vise den. For å vite hvor den skal vises
+bruker vi <code class="b">(mursteinX)</code>- og <code class="b">(mursteinY)</code>-variablene.</p>
+<pre><code class="blocks">    når jeg mottar [murstein-fruktsalat v]
+    sett x til (mursteinX)
+    sett y til ((mursteinY) + (30))
+    lag klon av [meg v]
+</code></pre>
+<p>Her har vi satt <code>y</code> litt høyere enn <code class="b">(mursteinY)</code> for at
+<code>Fruktsalat</code> skal dukke opp over <code>Murstein</code>.</p>
+</li>
+<li>
+<p>Lag så et skript på <code>Fruktsalat</code> som sier i fra om at Jumpman spiser
+den. Skriptet kan begynne med <code class="b">når jeg starter som klon</code>. Videre
+kan du <code class="blocklooks">vise</code> klonen, <code class="blockcontrol">vente til</code> klonen
+<code class="blocksensing">berører Kontroller</code>, <code class="blockevents">sende melding spis fruktsalat</code> og til slutt <code class="blockcontrol">slette denne klonen</code>.</p>
+</li>
+<li>
+<p>Nå mangler vi bare at Jumpman hopper høyere etter at han har spist
+fruktsalaten. Dette er lett. <code>Kontroller</code> må svare på meldingen
+<code>spis fruktsalat</code> med å sette <code class="b">(hopp)</code> til et passende
+tall. Prøv for eksempel 8.</p>
+</li>
+<li>
+<p>Test spillet ditt. Fungerer fruktsalaten? Dukker den opp når Jumpman
+skaller i den riktige mursteinen? Kan Jumpman hoppe høyere etter at
+han har spist <code>Fruktsalat</code>?</p>
+</li>
+<li>
+<p>Endre på spillbrettet ditt ved å flytte på eller lage nye
+mursteiner. Du kan nå ha mursteiner Jumpman ikke klarer å nå før han
+har spist fruktsalaten.</p>
+</li>
+</ul>
+</section>
+</section>
+<section class="activity" id="steg-4-videreutvikling-av-spillet">
+<h1 class="activity" id="steg-4-videreutvikling-av-spillet">Steg 4: Videreutvikling av spillet</h1>
+<p><em>Nå begynner spillet vårt å ta form, selv om vi vil fortsette
+utviklingen i <a href="jumpman_3_skrolling.html">del 3</a>. Nedenfor er forslag
+til hvordan du kan jobbe videre med spillet før neste del.</em></p>
+<section class="check" id="ideer-til-videreutvikling">
+<h2 class="check" id="ideer-til-videreutvikling">Ideer til videreutvikling</h2>
+<ul>
+<li>
+<p>Legg til andre spesialmursteiner. For eksempel kan du gjemme nøkler
+i mursteinene som du må finne for å låse opp dører, eller kanskje
+noe som gjør at Jumpman løper fortere.</p>
+</li>
+<li>
+<p>Legg til <code>Sensor - Venstre</code>- og <code>Sensor - Høyre</code>-figurer. Disse
+lager du på samme måte som <code>Sensor - Fot</code>- og <code>Sensor - Hode</code>-figurene. Bruk disse for å hindre <code>Kontroller</code>-figuren i å gå
+gjennom vegger ved å bytte for eksempel <code class="b">&lt;tast [pil høyre v] trykket?&gt;</code> med <code class="b">&lt;&lt;tast [pil høyre v] trykket?&gt; og &lt;(sensor - høyre) = [nei]&gt;&gt;</code>.</p>
+</li>
+<li>
+<p>Det kan være nyttig med en <code>Sensor - Kne</code>-figur. Denne kan du bruke
+for å oppdage om Jumpman står inne i en plattform i stedet for oppå
+den. Lag figuren på vanlig måte. Legg deretter til denne testen inne
+i <code class="b">hvis &lt;(sensor - fot) = [ja]&gt; :: reporter</code>-testen i <code>sjekk plattform</code>-skriptet på <code>Kontroller</code>:</p>
+<pre><code class="blocks">    hvis &lt;(sensor - kne) = [ja]&gt;
+        endre y med (2)
+    slutt
+</code></pre>
+</li>
+<li>
+<p>Nå er en av utfordringene i spillet å faktisk finne mursteinen hvor
+fruktsalaten er gjemt. Det trenger ikke være det. Du kan for
+eksempel tegne en egen drakt for spesielle mursteiner. Deretter kan
+du lage et <code>vis animasjon</code>-skript på <code>Murstein</code> som <code class="blocklooks">bytter drakt</code> avhengig av <code class="b">(spesial)</code>-variabelen.</p>
+</li>
+<li>
+<p>En viktig del av Super Mario-spillet er å samle penger som ofte er
+gjemt i mursteiner. Kanskje du kan lage noe tilsvarende? Du kan
+bruke samme <code class="b">(spesial)</code>-variabel som vi har brukt til
+<code>Fruktsalat</code>, eller om du vil ha muligheten til å gjemme flere
+penger i en murstein kan det være enklere med en ny variabel som
+teller hvor mange penger som er igjen. Lag også en ny
+<code class="b">(Poeng)</code>-variabel som blant annet teller hvor mange penger du
+har funnet.</p>
+</li>
+<li>
+<p>Kan du få fruktsalaten til å flytte på seg etter at den er funnet?
+Den trenger i såfall sine egne <code class="b">(fartX)</code>- og
+<code class="b">(fartY)</code>-variabler. Du kan da lage <code>sjekk plattform</code>- og <code>flytt figurer</code>-skript på <code>Fruktsalat</code> som styrer figuren.</p>
+</li>
+<li>
+<p>Tegn andre figurer enn mursteiner som fungerer som plattformer. Det
+viktigste er å implementere <code>sjekk sensor</code>-skriptene. Spesielt kan
+du fjerne alle plattformer fra bakgrunnen og heller bruke <code>Murstein</code>
+og andre figurer (vi skal uansett gjøre dette i
+<a href="jumpman_3_skrolling.html">neste del</a>).</p>
+</li>
+</ul>
+</section>
+</section>
 </div><div class="improve"><h3>Forbedre denne siden</h3><p>Funnet en feil? Kunne noe vært bedre? Hvis ja, vennligst gi oss tilbakemelding ved å lage en sak på Github eller fiks feilen selv om du kan. Vi er takknemlige for enhver tilbakemelding!</p><a href="https://github.com/kodeklubben/oppgaver/issues/new?title=Scratch: Jumpman, del 2 - Kollisjon&amp;body=Beskriv ditt problem..." class="issue">Rapporter et problem</a><a href="https://github.com/kodeklubben/oppgaver/tree/master/src/scratch/jumpman" class="code">Vis koden og fiks selv</a></div></div><div class="col-xs-12"><div id="footer" class="clearfix"><div class="license"><p><strong data-i18n="html=layout.license">Lisens</strong><strong>:</strong></p><a rel="license" data-i18n="href=layout.licenseUrl" href="http://creativecommons.org/licenses/by-sa/4.0/deed.no">CC BY-SA 4.0</a></div><div class="author"><p><strong data-i18n="html=layout.author">Forfatter</strong><strong>:</strong></p><p>Geir Arne Hjelle</p>
 </div></div></div></div></div><div class="intro-question modal fade"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">&times;</span></button><h4 data-i18n="html=layout.greeting" class="modal-title">Hei der!</h4></div><div class="modal-body"><p data-i18n="html=layout.askTour">Ser ut som dette er ditt første besøk, vil du ha en omvisning?</p></div><div class="modal-footer"><button data-i18n="html=layout.yes" class="btn btn-success">Ja!</button><button data-dismiss="modal" data-i18n="html=layout.no" class="btn btn-danger">Nei takk</button></div></div></div></div><script src="../../assets/vendor.min.js"></script><script src="../../assets/script.min.js"></script><script>$(document).ready(function(){
   $('pre').has('code.blocks').addClass('blocks');
