@@ -1,0 +1,51 @@
+<html><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Last ned kart | Kodeklubben</title><link href="../../assets/style.min.css" rel="stylesheet"/><script type="text/javascript">// convert url relative to current file
+// ex: python/index.html -> ../python/index.html
+function relative(url) {
+  var urlRoot = '../../../codeclub_lesson_builder';
+  if (urlRoot !== '') {
+    return urlRoot + '/' + url;
+  }
+  return url;
+}</script></head><body><div class="container"><div class="row"><div class="col-xs-12"><div class="top-menu"><div class="navigation"><a href="../../index.html"><span aria-hidden="true" class="glyphicon glyphicon-home"></span><span>&nbsp;</span><span data-i18n="html=layout.home">Forside</span></a><span>&nbsp;/&nbsp;</span><a href="../../scratch">Scratch</a></div><a data-i18n="title=layout.takeTour" title="Ta en omvisning på siden" data-placement="bottom" href="#" class="intro"><span class="icon"></span><span class="text">Intro</span></a><form class="search"><input type="text" data-i18n="placeholder=layout.search" placeholder="Søk" class="form-control"/></form></div></div><div class="search"><div class="results"><h1 data-i18n="html=layout.searchResults">Søkeresultat</h1></div></div><div class="col-xs-12"><header class="clearfix"><img src="../../assets/img/ccno_logo.png" class="logo hidden-xs"/><h1 class="title">Last ned kart</h1><div class="lesson-icons"><a href="../../scratch" class="course"><img src="../logo-white.png"/><span>Scratch</span></a><div class="pdf"><a href="/scratch/kart/kart.pdf" data-i18n="title=layout.downloadPdf" title="Last ned PDF"><span class="icon"></span><span class="text">PDF</span></a></div></div></header></div><div class="col-xs-12"><div class="content"><link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+<script src="leaflet-image.js"></script>
+<section class="intro" id="introduksjon">
+<h1 class="intro" id="introduksjon">Introduksjon</h1>
+<p>Her kommer det litt tekst som forklarer hvordan denne virker.</p>
+<div style="margin: auto; width: 480px">
+  <div id="kart" style="width: 480px; height: 360px"></div>
+  <p>
+    <br />
+    <a id="last_ned_som_bilde" class="btn btn-success btn-lg btn-block">Last ned som Scratch-bakgrunn</a>
+  </p>
+</div>
+<script>
+  var scratch_map = L.map('kart').setView([65, 14], 4);
+  L.tileLayer('http://opencache.statkart.no/gatekeeper/gk/gk.open_gmaps?layers=norges_grunnkart&zoom={z}&x={x}&y={y}', {attribution: '<a href="http://www.kartverket.no/">Kartverket</a>'}).addTo(scratch_map);
+
+  document.getElementById("last_ned_som_bilde").addEventListener("click", function() {
+    leafletImage(scratch_map, downloadMapAsImage);});
+
+  function downloadMapAsImage(err, canvas) {
+    var a = document.createElement("a");
+    var img = document.createElement('img');
+    var dimensions = scratch_map.getSize();
+    img.width = dimensions.x;
+    img.height = dimensions.y;
+    img.src = canvas.toDataURL();
+
+    url = img.src.replace('image/png', 'image/octet-stream');
+    a.download = 'kart.png';
+    a.href = url;
+    a.click();
+  }
+</script>
+<p>Her kommer det litt mer forklaring på hvordan man bruker kartgeneratoren.</p>
+</section>
+</div><div class="improve"><h3>Forbedre denne siden</h3><p>Funnet en feil? Kunne noe vært bedre? Hvis ja, vennligst gi oss tilbakemelding ved å lage en sak på Github eller fiks feilen selv om du kan. Vi er takknemlige for enhver tilbakemelding!</p><a href="https://github.com/kodeklubben/oppgaver/issues/new?title=Scratch: Last ned kart&amp;body=Beskriv ditt problem..." class="issue">Rapporter et problem</a><a href="https://github.com/kodeklubben/oppgaver/tree/master/src/scratch/kart" class="code">Vis koden og fiks selv</a></div></div><div class="col-xs-12"><div id="footer" class="clearfix"><div class="license"><p><strong data-i18n="html=layout.license">Lisens</strong><strong>:</strong></p><a rel="license" data-i18n="href=layout.licenseUrl" href="http://creativecommons.org/licenses/by-sa/4.0/deed.no">CC BY-SA 4.0</a></div><div class="author"><p><strong data-i18n="html=layout.author">Forfatter</strong><strong>:</strong></p><p>Geir Arne Hjelle og Lance Olav Eastgate</p>
+</div></div></div></div></div><div class="intro-question modal fade"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">&times;</span></button><h4 data-i18n="html=layout.greeting" class="modal-title">Hei der!</h4></div><div class="modal-body"><p data-i18n="html=layout.askTour">Ser ut som dette er ditt første besøk, vil du ha en omvisning?</p></div><div class="modal-footer"><button data-i18n="html=layout.yes" class="btn btn-success">Ja!</button><button data-dismiss="modal" data-i18n="html=layout.no" class="btn btn-danger">Nei takk</button></div></div></div></div><script src="../../assets/vendor.min.js"></script><script src="../../assets/script.min.js"></script><script>$(document).ready(function(){
+  $('pre').has('code.blocks').addClass('blocks');
+  scratchblocks2.load_language(scratchblocks2._translations['nb']);
+  scratchblocks2.parse('code.blocks');
+  scratchblocks2.parse('code.b', {inline: true});
+});</script></body></html>

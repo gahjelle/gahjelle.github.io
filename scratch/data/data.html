@@ -1,0 +1,131 @@
+<html><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Konverter CSV-data til Scratch | Kodeklubben</title><link href="../../assets/style.min.css" rel="stylesheet"/><script type="text/javascript">// convert url relative to current file
+// ex: python/index.html -> ../python/index.html
+function relative(url) {
+  var urlRoot = '../../../codeclub_lesson_builder';
+  if (urlRoot !== '') {
+    return urlRoot + '/' + url;
+  }
+  return url;
+}</script></head><body><div class="container"><div class="row"><div class="col-xs-12"><div class="top-menu"><div class="navigation"><a href="../../index.html"><span aria-hidden="true" class="glyphicon glyphicon-home"></span><span>&nbsp;</span><span data-i18n="html=layout.home">Forside</span></a><span>&nbsp;/&nbsp;</span><a href="../../scratch">Scratch</a></div><a data-i18n="title=layout.takeTour" title="Ta en omvisning på siden" data-placement="bottom" href="#" class="intro"><span class="icon"></span><span class="text">Intro</span></a><form class="search"><input type="text" data-i18n="placeholder=layout.search" placeholder="Søk" class="form-control"/></form></div></div><div class="search"><div class="results"><h1 data-i18n="html=layout.searchResults">Søkeresultat</h1></div></div><div class="col-xs-12"><header class="clearfix"><img src="../../assets/img/ccno_logo.png" class="logo hidden-xs"/><h1 class="title">Konverter CSV-data til Scratch</h1><div class="lesson-icons"><a href="../../scratch" class="course"><img src="../logo-white.png"/><span>Scratch</span></a><div class="pdf"><a href="/scratch/data/data.pdf" data-i18n="title=layout.downloadPdf" title="Last ned PDF"><span class="icon"></span><span class="text">PDF</span></a></div></div></header></div><div class="col-xs-12"><div class="content"><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.0.0/jszip.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2014-11-29/FileSaver.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/es6-promise/3.2.2/es6-promise.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.2/papaparse.min.js"></script>
+<section class="intro" id="introduksjon">
+<h1 class="intro" id="introduksjon">Introduksjon</h1>
+<p>Her kommer det litt tekst som forteller hva du skal gjøre!</p>
+<div style="margin: auto; width: 480px">
+  <button id="hent_fil" class="btn btn-success btn-lg btn-block">Konverter CSV-fil</button>
+  <input type="file" id="csv_fil" style="display:none">
+  <div id="feilmelding"></div>
+</div>
+<p>Og her kommer det litt mer tekst som forteller hvordan du får dette inn i Scratch</p>
+<script>
+function loadFile(url, type) {
+  var p = new Promise(function(resolve, reject) {
+    var req = new XMLHttpRequest();
+    req.open('GET', url, true);
+    req.responseType = type;
+    req.onload = function(e) {
+      resolve(req.response);
+    }
+    req.onerror = function(err) {
+      reject(err);
+    }
+
+    req.send();
+  });
+
+  return p;
+}
+
+function logError(e) {
+  console.error(e);
+}
+
+function manipulateJson(csvStr, jsonStr){
+  console.log(jsonStr);
+  console.log(csvStr);
+  var csvJson = Papa.parse(csvStr, {skipEmptyLines: true});
+  console.log(csvJson);
+
+  var headers = csvJson.data[0];
+  var rows = csvJson.data.slice(1);
+  console.log(rows)
+
+  var children = [];
+  for (var i=0; i < headers.length; ++i) {
+    children.push({
+      'listName': headers[i],
+      'contents': rows.map(function(r) {
+        return r[i];
+      }),
+      'isPersistent': false,
+      'x': 5 + i * 10,
+      'y': 5,
+      'width': 100,
+      'height': 200,
+      'visible': true
+    });
+  }
+  console.log(children);
+
+  var jo = JSON.parse(jsonStr);
+  jo['lists'] = children;
+  return JSON.stringify(jo);
+}
+
+var fileUpload = document.getElementById('csv_fil');
+
+document.getElementById('hent_fil').onclick = function() {
+  fileUpload.click();
+};
+
+fileUpload.onchange = function() {
+  var loadedCsv = new Promise(function(resolve, reject) {
+    var file = fileUpload.files[0];
+    fr = new FileReader();
+    fr.onload = function() {
+      resolve(fr.result);
+    };
+    fr.onerror = function(err) {
+      reject(err);
+    };
+    fr.readAsText(file);
+  });
+
+  var zip = new JSZip();
+  var loadedZip = loadFile('empty_project.sb2', 'blob');
+  var gotJsonContent = new Promise(function(resolve, reject) {
+    loadedZip.then(function(response){
+      zip.loadAsync(response).then(function() {
+        zip.file('project.json').async('string').then(function(content) {
+          resolve(content);
+        }, reject);
+      }, logError);
+    });
+  });
+
+  function all_success(values) {
+    var csvResponse = values[0];
+    var jsonStr = values[1];
+    zip.file('project.json', manipulateJson(csvResponse, jsonStr));
+  }
+
+  function saveZip() {
+    zip.generateAsync({type: 'blob'}).then(function(content) {
+      saveAs(content, 'data.sb2');
+    }, logError);
+  }
+
+  Promise.all([loadedCsv, gotJsonContent]).then(all_success, logError).then(saveZip, logError);
+
+};
+</script>
+</section>
+</div><div class="improve"><h3>Forbedre denne siden</h3><p>Funnet en feil? Kunne noe vært bedre? Hvis ja, vennligst gi oss tilbakemelding ved å lage en sak på Github eller fiks feilen selv om du kan. Vi er takknemlige for enhver tilbakemelding!</p><a href="https://github.com/kodeklubben/oppgaver/issues/new?title=Scratch: Konverter CSV-data til Scratch&amp;body=Beskriv ditt problem..." class="issue">Rapporter et problem</a><a href="https://github.com/kodeklubben/oppgaver/tree/master/src/scratch/data" class="code">Vis koden og fiks selv</a></div></div><div class="col-xs-12"><div id="footer" class="clearfix"><div class="license"><p><strong data-i18n="html=layout.license">Lisens</strong><strong>:</strong></p><a rel="license" data-i18n="href=layout.licenseUrl" href="http://creativecommons.org/licenses/by-sa/4.0/deed.no">CC BY-SA 4.0</a></div><div class="author"><p><strong data-i18n="html=layout.author">Forfatter</strong><strong>:</strong></p><p>Geir Arne Hjelle og Lance Olav Eastgate</p>
+</div></div></div></div></div><div class="intro-question modal fade"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">&times;</span></button><h4 data-i18n="html=layout.greeting" class="modal-title">Hei der!</h4></div><div class="modal-body"><p data-i18n="html=layout.askTour">Ser ut som dette er ditt første besøk, vil du ha en omvisning?</p></div><div class="modal-footer"><button data-i18n="html=layout.yes" class="btn btn-success">Ja!</button><button data-dismiss="modal" data-i18n="html=layout.no" class="btn btn-danger">Nei takk</button></div></div></div></div><script src="../../assets/vendor.min.js"></script><script src="../../assets/script.min.js"></script><script>$(document).ready(function(){
+  $('pre').has('code.blocks').addClass('blocks');
+  scratchblocks2.load_language(scratchblocks2._translations['nb']);
+  scratchblocks2.parse('code.blocks');
+  scratchblocks2.parse('code.b', {inline: true});
+});</script></body></html>
