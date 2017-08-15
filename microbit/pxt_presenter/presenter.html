@@ -1,0 +1,229 @@
+<html><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>PXT: Micro:bit Presenterer | Kodeklubben</title><link href="../../assets/style.min.css" rel="stylesheet"/><script type="text/javascript">// convert url relative to current file
+// ex: python/index.html -> ../python/index.html
+function relative (url) {
+  var urlRoot = '../..';
+  if (urlRoot !== '') {
+    return urlRoot + '/' + url;
+  }
+  return url;
+}</script></head><body><div class="container"><div class="row"><div class="col-xs-12"><div class="top-menu"><div class="navigation"><a href="../../index.html"><span aria-hidden="true" class="glyphicon glyphicon-home"></span><span>&nbsp;</span><span>Forside</span></a><span>&nbsp;/&nbsp;</span><img src="../logo-black.png"/><a href="..">Micro:bit</a></div><a title="Ta en omvisning på siden" data-placement="bottom" href="#" class="intro"><span class="icon"></span><span class="text">Intro</span></a><form class="search"><input type="text" placeholder="Søk" class="form-control"/></form></div></div><div class="search"><h1>Søkeresultat</h1><div class="results"></div></div><div class="col-xs-12"><header class="clearfix"><img src="../logo-black.png" class="logo hidden-xs"/><h1 class="title">PXT: Micro:bit Presenterer</h1><div class="lesson-icons"><div class="level"><img title="Nivå 3" src="../../assets/img/level3.png"/><span>Erfaren</span></div><a href=".." class="course"><img src="../logo-white.png"/><span>Micro:bit</span></a><div class="pdf"><a href="/microbit/pxt_presenter/presenter.pdf" title="Last ned PDF"><span class="icon"></span><span class="text">PDF</span></a></div></div></header></div><div class="col-xs-12"><div class="content"><section class="intro" id="introduksjon">
+<h1 class="intro" id="introduksjon">Introduksjon</h1>
+<p>Ved hjelp av to micro:bit'er skal vi lage en fjernkontroll for presentasjoner!
+Den ene micro:bit'en klikker vi på for å skifte slide, mens den andre
+micro:bit'en tar i mot klikkene våre og sender dem til datamaskinen.</p>
+<!-- ![](presenter.jpg) -->
+</section>
+<section class="activity" id="steg-1-datamaskinen-gjor-seg-klar">
+<h1 class="activity" id="steg-1-datamaskinen-gjor-seg-klar">Steg 1: Datamaskinen gjør seg klar</h1>
+<p><em>Først må datamaskinen gjøre seg klar til å lytte på en micro:bit.</em></p>
+<p>En micro:bit kan snakke til datamaskinen den er koblet til med USB over noe som
+kalles en <em>seriell port</em>. For å styre hva datamaskinen gjør med det micro:bit'en
+sier trenger vi et program på datamaskinen som oversetter det som kommer fra
+seriellporten. Etterhvert vil vi at micro:bit'en skal klikke gjennom
+presentasjoner for oss. Vi trenger derfor et program som kan late som om man
+trykker på tastaturet.</p>
+<section class="check" id="sjekkliste">
+<h2 class="check" id="sjekkliste">Sjekkliste</h2>
+<ul class="task-list">
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_0" disabled="true"><label for="cbx_0"> Vi skal bruke et enkelt python-program som oversetter data som kommer over
+seriellporten til tastetrykk. Vi må derfor først installere Python (hvis du
+ikke allerede har det). Gå til
+<a href="https://www.continuum.io/downloads">www.continuum.io/downloads</a> og installer
+Anaconda Python i versjon 3.</label></p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_1" disabled="true"><label for="cbx_1"> Last ned python-programmet <code>serial_key.py</code> fra
+<a href="http://gahjelle.github.io/serial_key.py">gahjelle.github.io/serial_key.py</a>. Husk
+hvor du lagrer det.</label></p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_2" disabled="true"><label for="cbx_2"> Python-programmet trenger to biblioteker for å lese data fra seriellporten
+og for å emulere tastetrykk. For å installere disse må du åpne en <strong>Anaconda
+Command Prompt</strong> og skrive</label></p>
+<pre><code>conda <span class="hljs-keyword">install</span> pyserial
+pip <span class="hljs-keyword">install</span> pyautogui
+</code></pre>
+<p>Dersom du bruker Mac eller Linux har <code>pyautogui</code> noen ekstra
+avhengigheter. Les
+<a href="https://pyautogui.readthedocs.io/en/latest/install.html">pyautogui.readthedocs.io/en/latest/install.html</a>
+for hvordan disse installeres.</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_3" disabled="true"><label for="cbx_3"> Koble en micro:bit til datamaskinen med en USB-kabel.</label></p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_4" disabled="true"><label for="cbx_4"> Start python-programmet ved å skrive følgende i <strong>Anaconda</strong>-vinduet du åpnet tidligere:</label></p>
+<pre><code>python serial_key<span class="hljs-selector-class">.py</span>
+</code></pre>
+<p>Om dette gir en feilmelding som sier at filen <code>serial_key.py</code> ikke kan åpnes
+så ligger filen på feil sted. Flytt filen <code>serial_key.py</code> til katalogen
+<strong>Anaconda</strong> har åpen (linjen nederst som begynner med <code>C:\</code>), og prøv igjen.</p>
+<p>Programmet skal si at det lytter på en port, men ikke noe mer skal skje enda.</p>
+</li>
+</ul>
+</section>
+</section>
+<section class="activity" id="steg-2-microbit-snakker">
+<h1 class="activity" id="steg-2-microbit-snakker">Steg 2: Micro:bit snakker</h1>
+<p><em>Nå skal micro:bit snakke til datamaskinen!</em></p>
+<section class="check" id="sjekkliste-2">
+<h2 class="check" id="sjekkliste-2">Sjekkliste</h2>
+<ul class="task-list">
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_5" disabled="true"><label for="cbx_5"> For å programmere micro:bit'en kan du åpne nettsiden
+<a href="https://makecode.microbit.org/?lang=no">makecode.microbit.org</a>.</label></p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_6" disabled="true"><label for="cbx_6"> La oss først lage et enkelt program som oppdager at vi trykker på
+<strong>A</strong>-knappen på micro:bit'en. Sett sammen to klosser på denne måten:</label></p>
+<p><figure><img src="skript_trykk_A.png" alt=""></figure></p>
+</li>
+</ul>
+</section>
+<section class="flag" id="test-prosjektet">
+<h2 class="flag" id="test-prosjektet">Test prosjektet</h2>
+<p>Det er to forskjellige måter vi kan teste micro:bit-programmer på:</p>
+<ul class="task-list">
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_7" disabled="true"><label for="cbx_7"> Til venstre på skjermen er det et bilde av en micro:bit. Dette er faktisk
+en simulator som kan kjøre programmet vi nettopp laget:</label></p>
+<p>Siden vår kode skal reagere når man trykker på <strong>A</strong>-knappen på micro:biten
+kan du simulere dette ved å klikke på den svarte knappen til venstre over
+bokstaven <code>A</code> på micro:bit-simulatoren. Bokstaven <strong>A</strong> skal vises på
+skjermen til micro:bit-simulatoren.</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_8" disabled="true"><label for="cbx_8"> Enda morsommere er det å teste programmet på micro:biten din! Gi
+programmet ditt navnet <code>presentasjon</code> i tekstfeltet ved siden av knappen <code>Last ned</code> nede til venstre på skjermen. Klikk deretter på knappen <code>Last ned</code>.</label></p>
+<p>Det lastes nå ned en fil som heter <code>microbit-presentasjon.hex</code> til
+datamaskinen din. Samtidig dukker det opp et vindu som sier at du må flytte
+denne filen til MICROBIT-disken. Dersom du trenger hjelp til dette så spør
+en av veilederne.</p>
+</li>
+</ul>
+</section>
+<section class="check" id="sjekkliste-3">
+<h2 class="check" id="sjekkliste-3">Sjekkliste</h2>
+<ul class="task-list">
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_9" disabled="true"><label for="cbx_9"> Legg til en kloss som sier <code>serieport skriv linje</code> under <code>vis tekst</code>-klossen. Denne klossen er litt gjemt. Først må du klikke <strong>Avansert</strong>,
+deretter <strong>Serieport</strong> for å finne den.</label></p>
+<p><figure><img src="skript_trykk_A_seriell.png" alt=""></figure></p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_10" disabled="true"><label for="cbx_10"> Last ned programmet ditt til micro:bit'en på nytt og kjør
+det. Micro:bit'en skal fortsatt skrive <strong>A</strong> på skjermen sin når du trykker på
+<strong>A</strong>-knappen, men nå blir også bokstaven <strong>A</strong> sendt til datamaskinen. Om du
+klikker tilbake til <strong>Anaconda</strong>-vinduet vil du se at bokstaven <strong>A</strong> har
+dukket opp der også.</label></p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_11" disabled="true"><label for="cbx_11"> Åpne for eksempel <em>Word</em> eller <em>Notepad</em> eller et annet program du kan
+skrive tekst i. Trykk på <strong>A</strong>-knappen på micro:bit'en. Nå skrives <strong>A</strong> også
+i programmet du nettopp åpnet!</label></p>
+</li>
+</ul>
+</section>
+</section>
+<section class="activity" id="steg-3-kontroller-en-presentasjon">
+<h1 class="activity" id="steg-3-kontroller-en-presentasjon">Steg 3: Kontroller en presentasjon</h1>
+<p><em>Nå skal vi bruke micro:bit'en til å gå til neste side i en presentasjon.</em></p>
+<section class="check" id="sjekkliste-4">
+<h2 class="check" id="sjekkliste-4">Sjekkliste</h2>
+<ul class="task-list">
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_12" disabled="true"><label for="cbx_12"> For å endre sider i et presentasjonsverktøy som PowerPoint eller Keynote,
+kan man bruke piltastene til venstre eller høyre. Vi kan angi at micro:bit
+skal trykke på disse tastene for oss ved å bruke tekstene <code>left</code> og
+<code>right</code>. Endre koden din slik at den ser ut som følger:</label></p>
+<p><figure><img src="skript_trykk_venstre.png" alt=""></figure></p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_13" disabled="true"><label for="cbx_13"> Prøv selv å legg til en ny kodeblokk som gjør nesten det samme når du
+trykker på <strong>B</strong>-knappen. Forskjellene er at den viser en pil mot høyre og
+sender teksten <code>right</code>.</label></p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_14" disabled="true"><label for="cbx_14"> Last ned det nye programmet til micro:bit'en. Åpne en presentasjon du har
+liggende i fullskjerm. Nå skal du kunne kontrollere presentasjonen med
+micro:bit.</label></p>
+</li>
+</ul>
+</section>
+</section>
+<section class="activity" id="steg-4-fjernkontroll">
+<h1 class="activity" id="steg-4-fjernkontroll">Steg 4: Fjernkontroll</h1>
+<p><em>Micro:bit'en henger jo fast i datamaskinen. Hvordan kan vi kontrollere
+presentasjonen uten å være i nærheten av datamaskinen?</em></p>
+<p>For å snakke til datamaskinen over seriellporten må micro:bit'en være koblet til
+datamaskinen. Det er jo ikke så nyttig! Vi skal nå se hvordan vi kan bruke en
+annen micro:bit for å snakke til den micro:bit'en som henger fast i datamaskinen.</p>
+<p>For at to micro:bit'er skal snakke sammen kan vi bruke <strong>Radio</strong>. Ved å bruke
+radio-funksjonene kan en micro:bit sende en melding til en eller flere andre
+micro:bit'er.</p>
+<section class="check" id="sjekkliste-5">
+<h2 class="check" id="sjekkliste-5">Sjekkliste</h2>
+<ul class="task-list">
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_15" disabled="true"><label for="cbx_15"> Det første vi må gjøre i alle prosjekter som bruker radio er å sette hvilken
+radio-gruppe prosjektet skal bruke. Gruppen er et tall mellom <strong>0</strong> og
+<strong>255</strong>.  Legg klossen <code>radio sett gruppe</code> inn i <code>ved start</code>-skriptet.</label></p>
+<p><figure><img src="radiogruppe.png" alt=""></figure></p>
+</li>
+</ul>
+<section class="tip" id="radio-gruppe">
+<h3 class="tip" id="radio-gruppe">Radio-gruppe</h3>
+<p>Hvilken gruppe vi setter er viktig. Det er to ting du må ta hensyn til:</p>
+<ul>
+<li>
+<p>Alle micro:bit'er som skal snakke sammen må bruke samme gruppe.</p>
+</li>
+<li>
+<p>Alle andre micro:bit'er i nærheten som bruker radio må bruke en annen gruppe.</p>
+</li>
+</ul>
+<p>Det er derfor lurt å prøve å velge et litt uvanlig tall (ikke <strong>1</strong> som i
+eksempelet over) mellom <strong>0</strong> og <strong>255</strong>. Om dere er mange i samme rom kan dere
+spørre veilederen om å gi dere alle hvert sitt gruppenummer.</p>
+</section>
+</section>
+<section class="check" id="sjekkliste-6">
+<h2 class="check" id="sjekkliste-6">Sjekkliste</h2>
+<ul class="task-list">
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_16" disabled="true"><label for="cbx_16"> Vi kan nå endre koden vår slik at micro:bit'en sender en melding over
+radio når vi trykker på <strong>A</strong>- og <strong>B</strong>-knappene. Endre koden for
+<strong>A</strong>-knappen slik:</label></p>
+<p><figure><img src="skript_venstre_radio.png" alt=""></figure></p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_17" disabled="true"><label for="cbx_17"> Endre koden for <strong>B</strong>-knappen tilsvarende.</label></p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_18" disabled="true"><label for="cbx_18"> Til slutt må vi lytte til meldinger som kommer over radio, og videresende
+dem på seriellporten. Legg til en ny kodeblokk som gjør dette:</label></p>
+<p><figure><img src="skript_radio_seriell.png" alt=""></figure></p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_19" disabled="true"><label for="cbx_19"> Last ned den samme koden på to forskjellige micro:bit'er.</label></p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_20" disabled="true"><label for="cbx_20"> Etter at koden er lastet ned skal en av micro:bit'ene fortsatt være koblet
+til datamaskinen med USB. Den andre micro:bit'en kan du koble til batteri i
+stedet for datamaskinen.</label></p>
+<p>Det kan hende du må starte python-programmet på nytt etter at du har koblet
+ut og inn micro:bit'ene.</p>
+</li>
+</ul>
+</section>
+<section class="flag" id="test-prosjektet-2">
+<h2 class="flag" id="test-prosjektet-2">Test prosjektet</h2>
+<p>Nå er programmet vårt ferdig. Du skal nå kunne trykke på <strong>A</strong>- eller
+<strong>B</strong>-knappen på micro:bit'en som ikke er koblet til datamaskinen. Den vil sende
+beskjeden <code>left</code> eller <code>right</code> til den andre micro:bit'en, som sender dette
+videre til datamaskinen slik at presentasjonen endrer seg.</p>
+</section>
+</section>
+</div><div class="improve"><h3>Forbedre denne siden</h3><p>Funnet en feil? Kunne noe vært bedre? Hvis ja, vennligst gi oss tilbakemelding ved å lage en sak på Github eller fiks feilen selv om du kan. Vi er takknemlige for enhver tilbakemelding!</p><a href="https://github.com/kodeklubben/oppgaver/issues/new?title=Problem med Micro:bit: PXT: Micro:bit Presenterer&amp;body=Oppgavens kildekode: https://github.com/kodeklubben/oppgaver/tree/master/src/microbit/pxt_presenter" class="issue">Rapporter et problem</a><a href="https://github.com/kodeklubben/oppgaver/tree/master/src/microbit/pxt_presenter" class="code">Vis koden og fiks selv</a></div></div><div class="col-xs-12"><div id="footer" class="clearfix"><div class="license"><p><strong>Lisens:</strong></p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/deed.no">CC BY-SA 4.0</a></div><div class="author"><p><strong>Forfatter</strong></p><p>Geir Arne Hjelle</p>
+</div></div></div></div></div><div class="intro-question modal fade"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title">Hei der!</h4></div><div class="modal-body"><p>Ser ut som dette er ditt første besøk, vil du ha en omvisning?</p></div><div class="modal-footer"><button class="btn btn-success">Ja!</button><button data-dismiss="modal" class="btn btn-danger">Nei takk</button></div></div></div></div><script src="../../assets/vendor.min.js"></script><script src="../../assets/script.min.js"></script></body></html>
