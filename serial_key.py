@@ -7,7 +7,7 @@ The program will automatically try to detect a port where a micro:bit is
 connected. If unsuccessful, it is possible to explicitly specify a port on the
 command line. For example
 
-    python {__file__} {serial_ports_list[0]}
+    python {__file__} {serial_port_example}
 
 The following are the available serial ports on this computer:
 
@@ -50,7 +50,7 @@ def detect_microbit_port():
     """
     ports = list_ports.comports()
     for dev, _, spec in ports:
-        if 'VID:PID=0d28:0204' in spec:
+        if 'VID:PID=0D28:0204' in spec.upper():
                 return dev
 
 
@@ -84,9 +84,10 @@ def help():
     serial ports and available key presses.
     """
     serial_ports = list_serial_ports()
+    serial_port_example = serial_ports[0] if serial_ports else '/dev/ttyACM3'
     keys_string = ', '.join(repr(k) for k in pyautogui.KEYBOARD_KEYS)
     help_text = __doc__.format(serial_ports_string='\n'.join(serial_ports),
-                               serial_ports_list=serial_ports,
+                               serial_port_example=serial_port_example,
                                keys_string=textwrap.fill(keys_string, width=80),
                                **globals())
     print(help_text)
