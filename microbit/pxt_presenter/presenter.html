@@ -26,41 +26,88 @@ trykker på tastaturet.</p>
 <h2 class="check" id="sjekkliste">Sjekkliste</h2>
 <ul class="task-list">
 <li class="task-list-item">
-<p><input type="checkbox" id="cbx_0" disabled="true"><label for="cbx_0"> Vi skal bruke et enkelt python-program som oversetter data som kommer over
+<p><input type="checkbox" id="cbx_0" disabled="true"><label for="cbx_0"> Koble en micro:bit til datamaskinen med en USB-kabel.</label></p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_1" disabled="true"><label for="cbx_1"> Vi skal bruke et enkelt python-program som oversetter data som kommer over
 seriellporten til tastetrykk. Vi må derfor først installere Python (hvis du
 ikke allerede har det). Gå til
 <a href="https://www.continuum.io/downloads">www.continuum.io/downloads</a> og installer
-Anaconda Python i versjon 3.</label></p>
+Anaconda for ditt operativsystem. Pass på at du velger Python
+3-versjonen. Anaconda trenger ikke administrative rettigheter for å
+installeres.</label></p>
 </li>
 <li class="task-list-item">
-<p><input type="checkbox" id="cbx_1" disabled="true"><label for="cbx_1"> Last ned python-programmet <code>serial_key.py</code> fra
+<p><input type="checkbox" id="cbx_2" disabled="true"><label for="cbx_2"> Last ned python-programmet <code>serial_key.py</code> fra
 <a href="http://gahjelle.github.io/serial_key.py">gahjelle.github.io/serial_key.py</a>. Husk
 hvor du lagrer det.</label></p>
 </li>
 <li class="task-list-item">
-<p><input type="checkbox" id="cbx_2" disabled="true"><label for="cbx_2"> Python-programmet trenger to biblioteker for å lese data fra seriellporten
-og for å emulere tastetrykk. For å installere disse må du åpne en <strong>Anaconda
-Command Prompt</strong> (på Mac eller Linux kan du åpne <strong>Terminal</strong> i stedet) og
-skrive</label></p>
-<pre><code>conda <span class="hljs-keyword">install</span> pyserial
-pip <span class="hljs-keyword">install</span> pyautogui
+<p><input type="checkbox" id="cbx_3" disabled="true"><label for="cbx_3"> Python-programmet trenger to biblioteker for å lese data fra seriellporten
+og for å emulere tastetrykk. Hvordan disse installeres er avhengig av hvilket
+operativsystem du bruker. Les i riktig boks nedenfor.</label></p>
+</li>
+</ul>
+<section class="tip" id="windows">
+<h3 class="tip" id="windows">Windows</h3>
+<p>For å installere bibliotekene på Windows må du åpne en <strong>Anaconda Command
+Prompt</strong> og skrive</p>
+<pre><code class="plain">conda install pyserial
+pip install pyautogui
 </code></pre>
-<p>Dersom du bruker Mac eller Linux har <code>pyautogui</code> noen ekstra
-avhengigheter. Les
-<a href="https://pyautogui.readthedocs.io/en/latest/install.html">pyautogui.readthedocs.io/en/latest/install.html</a>
-for hvordan disse installeres.</p>
-</li>
+<p>Dette <strong>Anaconda Command Prompt</strong>-vinduet vil vi omtale som <strong>Terminal</strong> videre
+i teksten.</p>
+</section>
+<section class="tip" id="mac">
+<h3 class="tip" id="mac">Mac</h3>
+<p>For å installere bibliotekene på Mac åpner du først en <strong>Terminal</strong> (for
+eksempel ved å trykke <strong>Command+Space</strong> og deretter skrive <code>terminal</code>). Skriv
+deretter følgende i <strong>Terminal</strong>-vinduet:</p>
+<pre><code class="plain">conda install pyserial
+pip install pyobjc-core
+pip install pyobjc
+pip install pyautogui
+</code></pre>
+<p>Vi har nå installert bibliotekene vi trenger. Vi skal også finne navnet på
+seriellporten hvor micro:bit'en er koblet til. Skriv dette i
+<strong>Terminal</strong>-vinduet:</p>
+<pre><code class="plain">ls /dev/uc.*
+</code></pre>
+<p>Når du trykker <em>Enter</em> vil du se en liste. En av dem har et navn som ligner på
+<code>/dev/cu.usbmodem1422</code>. Dette er navnet på seriellporten. Husk dette til neste
+steg.</p>
+</section>
+<section class="tip" id="linux">
+<h3 class="tip" id="linux">Linux</h3>
+<p>For å installere bibliotekene på Linux åpner du først en <strong>Terminal</strong> (for
+eksempel ved å trykke <strong>Control+Alt+T</strong>). Skriv deretter følgende i
+<strong>Terminal</strong>-vinduet:</p>
+<pre><code class="plain">conda install pyserial
+pip install python3-xlib
+pip install pyautogui
+</code></pre>
+</section>
+</section>
+<section class="check" id="sjekkliste-2">
+<h2 class="check" id="sjekkliste-2">Sjekkliste</h2>
+<ul class="task-list">
 <li class="task-list-item">
-<p><input type="checkbox" id="cbx_3" disabled="true"><label for="cbx_3"> Koble en micro:bit til datamaskinen med en USB-kabel.</label></p>
-</li>
-<li class="task-list-item">
-<p><input type="checkbox" id="cbx_4" disabled="true"><label for="cbx_4"> Start python-programmet ved å skrive følgende i <strong>Anaconda</strong>-vinduet du åpnet tidligere:</label></p>
-<pre><code>python serial_key<span class="hljs-selector-class">.py</span>
+<p><input type="checkbox" id="cbx_4" disabled="true"><label for="cbx_4"> Start python-programmet ved å skrive følgende i <strong>Terminal</strong>-vinduet du
+åpnet tidligere:</label></p>
+<pre><code class="plain">python serial_key.py
 </code></pre>
 <p>Om dette gir en feilmelding som sier at filen <code>serial_key.py</code> ikke kan åpnes
 så ligger filen på feil sted. Flytt filen <code>serial_key.py</code> til katalogen
-<strong>Anaconda</strong> har åpen (linjen nederst som begynner med <code>C:\</code>), og prøv igjen.</p>
-<p>Programmet skal si at det lytter på en port, men ikke noe mer skal skje enda.</p>
+<strong>Terminal</strong> har åpen og prøv igjen. Du kan se hvilken katalog <strong>Terminal</strong>
+har åpen ved å lese begynnelsen av linjen du kan skrive på (for eksempel
+begynner den på <code>C:\</code> på Windows)</p>
+<p>Programmet skal si at det lytter på en port, men ikke noe mer skal skje
+enda. Dersom programmet i stedet viser en hjelpetekst betyr det at det ikke
+klarte å detektere micro:bit'en. Du kan da skrive inn navnet på porten
+selv. For eksempel</p>
+<pre><code class="plain">python serial_key.py /dev/cu.usbmodem1422
+</code></pre>
+<p>på Mac (bruk det samme nummeret som du fant ovenfor).</p>
 </li>
 </ul>
 </section>
@@ -68,8 +115,8 @@ så ligger filen på feil sted. Flytt filen <code>serial_key.py</code> til katal
 <section class="activity" id="steg-2-microbit-snakker">
 <h1 class="activity" id="steg-2-microbit-snakker">Steg 2: Micro:bit snakker</h1>
 <p><em>Nå skal micro:bit snakke til datamaskinen!</em></p>
-<section class="check" id="sjekkliste-2">
-<h2 class="check" id="sjekkliste-2">Sjekkliste</h2>
+<section class="check" id="sjekkliste-3">
+<h2 class="check" id="sjekkliste-3">Sjekkliste</h2>
 <ul class="task-list">
 <li class="task-list-item">
 <p><input type="checkbox" id="cbx_5" disabled="true"><label for="cbx_5"> For å programmere micro:bit'en kan du åpne nettsiden
@@ -104,8 +151,8 @@ en av veilederne.</p>
 </li>
 </ul>
 </section>
-<section class="check" id="sjekkliste-3">
-<h2 class="check" id="sjekkliste-3">Sjekkliste</h2>
+<section class="check" id="sjekkliste-4">
+<h2 class="check" id="sjekkliste-4">Sjekkliste</h2>
 <ul class="task-list">
 <li class="task-list-item">
 <p><input type="checkbox" id="cbx_9" disabled="true"><label for="cbx_9"> Legg til en kloss som sier <code>serieport skriv linje</code> under <code>vis tekst</code>-klossen. Denne klossen er litt gjemt. Først må du klikke <strong>Avansert</strong>,
@@ -116,7 +163,7 @@ deretter <strong>Serieport</strong> for å finne den.</label></p>
 <p><input type="checkbox" id="cbx_10" disabled="true"><label for="cbx_10"> Last ned programmet ditt til micro:bit'en på nytt og kjør
 det. Micro:bit'en skal fortsatt skrive <strong>A</strong> på skjermen sin når du trykker på
 <strong>A</strong>-knappen, men nå blir også bokstaven <strong>A</strong> sendt til datamaskinen. Om du
-klikker tilbake til <strong>Anaconda</strong>-vinduet vil du se at bokstaven <strong>A</strong> har
+klikker tilbake til <strong>Terminal</strong>-vinduet vil du se at bokstaven <strong>A</strong> har
 dukket opp der også.</label></p>
 </li>
 <li class="task-list-item">
@@ -130,8 +177,8 @@ i programmet du nettopp åpnet!</label></p>
 <section class="activity" id="steg-3-kontroller-en-presentasjon">
 <h1 class="activity" id="steg-3-kontroller-en-presentasjon">Steg 3: Kontroller en presentasjon</h1>
 <p><em>Nå skal vi bruke micro:bit'en til å gå til neste side i en presentasjon.</em></p>
-<section class="check" id="sjekkliste-4">
-<h2 class="check" id="sjekkliste-4">Sjekkliste</h2>
+<section class="check" id="sjekkliste-5">
+<h2 class="check" id="sjekkliste-5">Sjekkliste</h2>
 <ul class="task-list">
 <li class="task-list-item">
 <p><input type="checkbox" id="cbx_12" disabled="true"><label for="cbx_12"> For å endre sider i et presentasjonsverktøy som PowerPoint eller Keynote,
@@ -163,8 +210,8 @@ annen micro:bit for å snakke til den micro:bit'en som henger fast i datamaskine
 <p>For at to micro:bit'er skal snakke sammen kan vi bruke <strong>Radio</strong>. Ved å bruke
 radio-funksjonene kan en micro:bit sende en melding til en eller flere andre
 micro:bit'er.</p>
-<section class="check" id="sjekkliste-5">
-<h2 class="check" id="sjekkliste-5">Sjekkliste</h2>
+<section class="check" id="sjekkliste-6">
+<h2 class="check" id="sjekkliste-6">Sjekkliste</h2>
 <ul class="task-list">
 <li class="task-list-item">
 <p><input type="checkbox" id="cbx_15" disabled="true"><label for="cbx_15"> Det første vi må gjøre i alle prosjekter som bruker radio er å sette hvilken
@@ -189,8 +236,8 @@ eksempelet over) mellom <strong>0</strong> og <strong>255</strong>. Om dere er m
 spørre veilederen om å gi dere alle hvert sitt gruppenummer.</p>
 </section>
 </section>
-<section class="check" id="sjekkliste-6">
-<h2 class="check" id="sjekkliste-6">Sjekkliste</h2>
+<section class="check" id="sjekkliste-7">
+<h2 class="check" id="sjekkliste-7">Sjekkliste</h2>
 <ul class="task-list">
 <li class="task-list-item">
 <p><input type="checkbox" id="cbx_16" disabled="true"><label for="cbx_16"> Vi kan nå endre koden vår slik at micro:bit'en sender en melding over
@@ -226,5 +273,5 @@ beskjeden <code>left</code> eller <code>right</code> til den andre micro:bit'en,
 videre til datamaskinen slik at presentasjonen endrer seg.</p>
 </section>
 </section>
-</div><div class="improve"><h3>Forbedre denne siden</h3><p>Funnet en feil? Kunne noe vært bedre? Hvis ja, vennligst gi oss tilbakemelding ved å lage en sak på Github eller fiks feilen selv om du kan. Vi er takknemlige for enhver tilbakemelding!</p><a href="https://github.com/kodeklubben/oppgaver/issues/new?title=Problem med Micro:bit: PXT: Micro:bit Presenterer&amp;body=Oppgavens kildekode: https://github.com/kodeklubben/oppgaver/tree/master/src/microbit/pxt_presenter" class="issue">Rapporter et problem</a><a href="https://github.com/kodeklubben/oppgaver/tree/master/src/microbit/pxt_presenter" class="code">Vis koden og fiks selv</a></div></div><div class="col-xs-12"><div id="footer" class="clearfix"><div class="license"><p><strong>Lisens:</strong></p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/deed.no">CC BY-SA 4.0</a></div><div class="author"><p><strong>Forfatter</strong></p><p>Geir Arne Hjelle</p>
+</div><div class="improve"><h3>Forbedre denne siden</h3><p>Funnet en feil? Kunne noe vært bedre? Hvis ja, vennligst gi oss tilbakemelding ved å lage en sak på Github eller fiks feilen selv om du kan. Vi er takknemlige for enhver tilbakemelding!</p><a href="https://github.com/kodeklubben/oppgaver/issues/new?title=Problem med Micro:bit: PXT: Micro:bit Presenterer&amp;body=Oppgavens kildekode: https://github.com/kodeklubben/oppgaver/tree/master/src/microbit/pxt_presenter" class="issue">Rapporter et problem</a><a href="https://github.com/kodeklubben/oppgaver/tree/master/src/microbit/pxt_presenter" class="code">Vis koden og fiks selv</a></div></div><div class="col-xs-12"><div id="footer" class="clearfix"><div class="license"><p><strong>Lisens:</strong></p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/deed.no">CC BY-SA 4.0</a></div><div class="author"><p><strong>Forfatter</strong></p><p>Geir Arne Hjelle og Sten Roger Sandvik</p>
 </div></div></div></div></div><div class="intro-question modal fade"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title">Hei der!</h4></div><div class="modal-body"><p>Ser ut som dette er ditt første besøk, vil du ha en omvisning?</p></div><div class="modal-footer"><button class="btn btn-success">Ja!</button><button data-dismiss="modal" class="btn btn-danger">Nei takk</button></div></div></div></div><script src="../../assets/vendor.min.js"></script><script src="../../assets/script.min.js"></script></body></html>
