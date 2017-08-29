@@ -1,0 +1,199 @@
+<html><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Bygg en skole | Kodeklubben</title><link href="../../assets/style.min.css" rel="stylesheet"/><script type="text/javascript">// convert url relative to current file
+// ex: python/index.html -> ../python/index.html
+function relative (url) {
+  var urlRoot = '../..';
+  if (urlRoot !== '') {
+    return urlRoot + '/' + url;
+  }
+  return url;
+}</script></head><body><div class="container"><div class="row"><div class="col-xs-12"><div class="top-menu"><div class="navigation"><a href="../../index.html"><span aria-hidden="true" class="glyphicon glyphicon-home"></span><span>&nbsp;</span><span>Forside</span></a><span>&nbsp;/&nbsp;</span><img src="../logo-black.png"/><a href="..">Scratch</a></div><a title="Ta en omvisning på siden" data-placement="bottom" href="#" class="intro"><span class="icon"></span><span class="text">Intro</span></a><form class="search"><input type="text" placeholder="Søk" class="form-control"/></form></div></div><div class="search"><h1>Søkeresultat</h1><div class="results"></div></div><div class="col-xs-12"><header class="clearfix"><img src="../logo-black.png" class="logo hidden-xs"/><h1 class="title">Bygg en skole</h1><div class="lesson-icons"><div class="level"><img title="Nivå 1" src="../../assets/img/level1.png"/><span>Introduksjon</span></div><a href=".." class="course"><img src="../logo-white.png"/><span>Scratch</span></a><div class="pdf"><a href="/scratch/bygg_en_skole/bygg_en_skole.pdf" title="Last ned PDF"><span class="icon"></span><span class="text">PDF</span></a></div></div></header></div><div class="col-xs-12"><div class="content"><section class="intro" id="introduksjon">
+<h1 class="intro" id="introduksjon">Introduksjon</h1>
+<p>Velkommen til Scratch. Vi skal sammen lage et enkelt spill hvor vi hjelper til
+med å bygge en skole.</p>
+<p><figure><img src="pingviner_pa_tur.png" alt=""></figure></p>
+</section>
+<section class="activity" id="velkommen-til-scratch">
+<h1 class="activity" id="velkommen-til-scratch">Velkommen til Scratch</h1>
+<p><em>Om du allerede kjenner Scratch og har en Scratchbruker kan du gå videre til
+<a href="#steg-1-til-hoyre-og-venstre">Steg 1</a>.</em></p>
+<p><a href="https://scratch.mit.edu/">Scratch</a> er et programeringsspråk laget spesielt for
+at det skal være raskt å komme i gang med, og for at man raskt skal kunne lage
+sine egne spill og animasjoner. Scratch kjører i nettleseren og er helt gratis å
+bruke. Før du begynner å programmere er det lurt å lage seg en Scratchbruker
+fordi dette gjør det enklere å lagre spillene dine og dele dem med andre.</p>
+<section class="check" id="lag-en-scratchbruker">
+<h2 class="check" id="lag-en-scratchbruker">Lag en Scratchbruker</h2>
+<ul class="task-list">
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_0" disabled="true"><label for="cbx_0"> Gå til nettsiden <a href="https://scratch.mit.edu/">scratch.mit.edu</a> i en nettleser.</label></p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_1" disabled="true"><label for="cbx_1"> Om siden er på engelsk kan du endre språk til norsk (bokmål eller nynorsk) i
+nedtrekksmenyen nederst på siden.</label></p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_2" disabled="true"><label for="cbx_2"> Klikk <strong>Bli Scratch-bruker</strong> øverst til høyre, og fyll ut skjemaet som dukker
+opp.</label></p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_3" disabled="true"><label for="cbx_3"> Etter at du har blitt Scratchbruker kan du klikke <strong>Programmering</strong> øverst til
+venstre for å begynne å programmere.</label></p>
+<p>Videre gir vi deg en oppskrift på hvordan du kan lage et enkelt spill hvor
+du skal samle forskjellige ting for å hjelpe til med å bygge en skole.</p>
+</li>
+</ul>
+</section>
+</section>
+<section class="activity" id="steg-1-til-hoyre-og-venstre">
+<h1 class="activity" id="steg-1-til-hoyre-og-venstre">Steg 1: Til høyre og venstre</h1>
+<p><em>Vi begynner med å se på hvordan vi kan lage en figur og få denne til å bevege seg.</em></p>
+<section class="check" id="sjekkliste">
+<h2 class="check" id="sjekkliste">Sjekkliste</h2>
+<ul class="task-list">
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_4" disabled="true"><label for="cbx_4"> Når du starter et nytt Scratch-prosjekt ser du en kattefigur. I dette spillet
+skal vi ikke bruke denne. Vi begynner derfor med å slette kattefiguren:</label></p>
+<p>Klikk på <img src="../bilder/slett.png" alt="Slett"> øverst i menyen, og klikk deretter på
+kattefiguren for å slette denne.</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_5" disabled="true"><label for="cbx_5"> Vi skal nå legge til figuren vi skal styre. Klikk på
+<img src="../bilder/hent-fra-bibliotek.png" alt="Velg figur fra biblioteket"> ved siden av
+<strong>Ny figur:</strong> omtrent midt på skjermen. Velg kategorien <code>Mennesker</code> og finn
+deretter en figur du vil styre. Klikk denne og deretter <strong>OK</strong>.</label></p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_6" disabled="true"><label for="cbx_6"> Du har nå fått en figur inn i spillet ditt. La oss programmere den!</label></p>
+<p>Midt på skjermen ser du mange fargede klosser, for eksempel <code class="b">gå (10) steg</code>. Disse er kommandoer vi kan gi til figurene våre. For å skrive et
+program pusler vi sammen flere klosser ved å dra dem over til høyre delen av
+skjermen.</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_7" disabled="true"><label for="cbx_7"> Pusle sammen denne koden for figuren din:</label></p>
+<pre><code class="blocks">når grønt flagg klikkes
+gå til x: (0) y: (-120)
+for alltid
+    hvis &lt;tast [pil høyre v] trykket?&gt;
+        endre x med (5)
+    slutt
+slutt
+</code></pre>
+</li>
+</ul>
+<p>Legg merke til at fargene på klossene samsvarer med kategoriene øverst på siden.
+For eksempel finner du <code class="b">når grønt flagg klikkes</code> i
+<code class="blockevents">Hendelser</code>-kategorien.</p>
+<p>I mange av klossene kan du endre på noen av verdiene. Dette gjør du ved å klikke
+på klossen i det feltet du vil endre. For eksempel for at det skal stå <code class="blocksensing">pil høyre</code> i klossen <code class="b">tast [pil høyre v] trykket?</code> må du klikke
+hvor det står <code class="blocksensing">mellomrom</code> og velge <code class="blocksensing">pil høyre</code>.</p>
+</section>
+<section class="flag" id="test-prosjektet">
+<h2 class="flag" id="test-prosjektet">Test prosjektet</h2>
+<p><strong>Klikk på det grønne flagget øverst midt på skjermen for å prøve spillet ditt.</strong></p>
+<ul class="task-list">
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_8" disabled="true"><label for="cbx_8"> Vi har sagt at figuren skal flytte seg når du trykker på piltasten mot
+høyre. Prøv å trykk på denne piltasten. Flytter figuren seg?</label></p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_9" disabled="true"><label for="cbx_9"> Hva betyr <code class="blockmotion">x</code> i klossen <code class="b">endre x med (5)</code>?</label></p>
+<p>Du har kanskje lært om <code class="blockmotion">x</code> og <code class="blockmotion">y</code> i matematikk
+for å tegne koordinatsystemer? I Scratch bruker vi disse for å beskrive hvor
+på skjermen en figur er. Med <code class="blockmotion">x</code> sier vi hvordan figuren
+beveger seg sidelengs. Om <code class="blockmotion">x</code> blir større beveger figuren seg
+mot høyre, og blir den mindre beveger figuren seg mot venstre. På samme måte
+sier <code class="blockmotion">y</code> hvordan figuren beveger seg opp og ned.</p>
+</li>
+</ul>
+<p>Du kan bruke den røde knappen ved siden av det grønne flagget om du ønsker å
+avslutte programmet ditt. Da vil ikke figuren flytte seg selv om du trykker
+piltasten. Etterhvert som du lager mer kode bør du klikke på det grønne flagget
+for å se hva som skjer.</p>
+</section>
+<section class="save" id="lagre-prosjektet">
+<h2 class="save" id="lagre-prosjektet">Lagre prosjektet</h2>
+<p>Du har nå laget et veldig enkelt spill! Scratch lagrer alt du gjør automatisk med jevne
+mellomrom. Det kan likevel være lurt å lagre selv også innimellom.</p>
+<ul class="task-list">
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_10" disabled="true"><label for="cbx_10"> Over scenen er det et tekstfelt hvor du kan gi navn til prosjektet ditt. Kall
+det for eksempel <code>Bygg en skole</code>.</label></p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_11" disabled="true"><label for="cbx_11"> I menyen <strong>Fil</strong> kan du velge <strong>Lagre nå</strong> for å lagre prosjektet.</label></p>
+</li>
+</ul>
+</section>
+<section class="check" id="sjekkliste-2">
+<h2 class="check" id="sjekkliste-2">Sjekkliste</h2>
+<ul class="task-list">
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_12" disabled="true"><label for="cbx_12"> Vi vil jo at figuren skal kunne bevege seg frem og tilbake. Da må vi også
+lage kode som flytter figuren mot venstre. Prøv først selv om du klarer å
+legge til klosser som gjør dette!</label></p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_13" disabled="true"><label for="cbx_13"> Koden vi trenger for å flytte mot venstre er veldig lik den vi allerede
+har laget for å flytte mot høyre. Vi må bare endre hvilken piltast som
+trykkes, og hvilket tall vi endrer <code class="blockmotion">x</code> med.</label></p>
+<p>Når vi er ferdig med dette bør koden din se slik ut:</p>
+<pre><code class="blocks">når grønt flagg klikkes
+gå til x: (0) y: (-120)
+for alltid
+    hvis &lt;tast [pil høyre v] trykket?&gt;
+        endre x med (5)
+    slutt
+    hvis &lt;tast [pil venstre v] trykket?&gt;
+        endre x med (-5)
+    slutt
+slutt
+</code></pre>
+</li>
+</ul>
+</section>
+</section>
+<section class="activity" id="steg-2-hjelpemidler">
+<h1 class="activity" id="steg-2-hjelpemidler">Steg 2: Hjelpemidler</h1>
+<p><em>Nå skal vi programmere ting vi kan samle sammen for å bygge en skole.</em></p>
+<section class="check" id="sjekkliste-3">
+<h2 class="check" id="sjekkliste-3">Sjekkliste</h2>
+</section>
+</section>
+<section class="activity" id="steg-3-en-skole-blir-bygd">
+<h1 class="activity" id="steg-3-en-skole-blir-bygd">Steg 3: En skole blir bygd</h1>
+</section>
+<section class="activity" id="steg-4-flere-hjelpemidler">
+<h1 class="activity" id="steg-4-flere-hjelpemidler">Steg 4: Flere hjelpemidler</h1>
+<section class="challenge" id="prov-selv">
+<h2 class="challenge" id="prov-selv">Prøv selv</h2>
+<p>Vi har nå laget et lite spill sammen, men prøv gjerne å utvikle det videre. Her
+er noen ideer:</p>
+<ul class="task-list">
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_14" disabled="true"><label for="cbx_14"> Forskjellig hastigheter på hjelpemidlene</label></p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_15" disabled="true"><label for="cbx_15"> Forskjellige poeng på hjelpemidlene</label></p>
+</li>
+</ul>
+</section>
+</section>
+</div><div class="improve"><h3>Forbedre denne siden</h3><p>Funnet en feil? Kunne noe vært bedre? Hvis ja, vennligst gi oss tilbakemelding ved å lage en sak på Github eller fiks feilen selv om du kan. Vi er takknemlige for enhver tilbakemelding!</p><a href="https://github.com/kodeklubben/oppgaver/issues/new?title=Problem med Scratch: Bygg en skole&amp;body=Oppgavens kildekode: https://github.com/kodeklubben/oppgaver/tree/master/src/scratch/bygg_en_skole" class="issue">Rapporter et problem</a><a href="https://github.com/kodeklubben/oppgaver/tree/master/src/scratch/bygg_en_skole" class="code">Vis koden og fiks selv</a></div></div><div class="col-xs-12"><div id="footer" class="clearfix"><div class="license"><p><strong>Lisens:</strong></p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/deed.no">CC BY-SA 4.0</a></div><div class="author"><p><strong>Forfatter</strong></p><p>Geir Arne Hjelle</p>
+</div></div></div></div></div><div class="intro-question modal fade"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title">Hei der!</h4></div><div class="modal-body"><p>Ser ut som dette er ditt første besøk, vil du ha en omvisning?</p></div><div class="modal-footer"><button class="btn btn-success">Ja!</button><button data-dismiss="modal" class="btn btn-danger">Nei takk</button></div></div></div></div><script src="../../assets/vendor.min.js"></script><script src="../../assets/script.min.js"></script><script>// bind shim for phantomJS
+Function.prototype.bind = Function.prototype.bind || function (thisp) {
+  var fn = this;
+  var args = Array.prototype.slice.call(arguments, 1);
+  return function () {
+    return fn.apply(thisp, args);
+  };
+};
+$(document).ready(function(){
+  $('pre').has('code.blocks').addClass('blocks');
+  scratchblocks.renderMatching('code.blocks', {
+    languages: ['nb', 'en']
+  });
+  scratchblocks.renderMatching('code.b', {
+    languages: ['nb', 'en'],
+    inline: true
+  });
+});</script></body></html>
