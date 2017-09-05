@@ -10,7 +10,7 @@ function relative (url) {
 <h1 class="intro" id="introduksjon">Introduksjon</h1>
 <p>Velkommen til Scratch. Vi skal sammen lage et enkelt spill hvor vi hjelper til
 med å bygge en skole.</p>
-<p><figure><img src="pingviner_pa_tur.png" alt=""></figure></p>
+<p><figure><img src="bygg_en_skole.png" alt=""></figure></p>
 </section>
 <section class="activity" id="velkommen-til-scratch">
 <h1 class="activity" id="velkommen-til-scratch">Velkommen til Scratch</h1>
@@ -63,13 +63,17 @@ kattefiguren for å slette denne.</p>
 deretter en figur du vil styre. Klikk denne og deretter <strong>OK</strong>.</label></p>
 </li>
 <li class="task-list-item">
-<p><input type="checkbox" id="cbx_6" disabled="true"><label for="cbx_6"> Du har nå fått en figur inn i spillet ditt. La oss programmere den!</label></p>
+<p><input type="checkbox" id="cbx_6" disabled="true"><label for="cbx_6"> Gi figuren navnet <code>bygger</code> ved å klikke på <code class="blockmotion">i</code> i
+figurlisten. Skriv <code>bygger</code> i tekstfeltet.</label></p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_7" disabled="true"><label for="cbx_7"> Du har nå fått en figur inn i spillet ditt. La oss programmere den!</label></p>
 <p>Midt på skjermen ser du mange fargede klosser, for eksempel <code class="b">gå (10) steg</code>. Disse er kommandoer vi kan gi til figurene våre. For å skrive et
 program pusler vi sammen flere klosser ved å dra dem over til høyre delen av
 skjermen.</p>
 </li>
 <li class="task-list-item">
-<p><input type="checkbox" id="cbx_7" disabled="true"><label for="cbx_7"> Pusle sammen denne koden for figuren din:</label></p>
+<p><input type="checkbox" id="cbx_8" disabled="true"><label for="cbx_8"> Pusle sammen denne koden for figuren din:</label></p>
 <pre><code class="blocks">når grønt flagg klikkes
 gå til x: (0) y: (-120)
 for alltid
@@ -92,11 +96,11 @@ hvor det står <code class="blocksensing">mellomrom</code> og velge <code class=
 <p><strong>Klikk på det grønne flagget øverst midt på skjermen for å prøve spillet ditt.</strong></p>
 <ul class="task-list">
 <li class="task-list-item">
-<p><input type="checkbox" id="cbx_8" disabled="true"><label for="cbx_8"> Vi har sagt at figuren skal flytte seg når du trykker på piltasten mot
-høyre. Prøv å trykk på denne piltasten. Flytter figuren seg?</label></p>
+<p><input type="checkbox" id="cbx_9" disabled="true"><label for="cbx_9"> Vi har sagt at <code>bygger</code>-figuren skal flytte seg når du trykker på
+piltasten mot høyre. Prøv å trykk på denne piltasten. Flytter figuren seg?</label></p>
 </li>
 <li class="task-list-item">
-<p><input type="checkbox" id="cbx_9" disabled="true"><label for="cbx_9"> Hva betyr <code class="blockmotion">x</code> i klossen <code class="b">endre x med (5)</code>?</label></p>
+<p><input type="checkbox" id="cbx_10" disabled="true"><label for="cbx_10"> Hva betyr <code class="blockmotion">x</code> i klossen <code class="b">endre x med (5)</code>?</label></p>
 <p>Du har kanskje lært om <code class="blockmotion">x</code> og <code class="blockmotion">y</code> i matematikk
 for å tegne koordinatsystemer? I Scratch bruker vi disse for å beskrive hvor
 på skjermen en figur er. Med <code class="blockmotion">x</code> sier vi hvordan figuren
@@ -116,11 +120,11 @@ for å se hva som skjer.</p>
 mellomrom. Det kan likevel være lurt å lagre selv også innimellom.</p>
 <ul class="task-list">
 <li class="task-list-item">
-<p><input type="checkbox" id="cbx_10" disabled="true"><label for="cbx_10"> Over scenen er det et tekstfelt hvor du kan gi navn til prosjektet ditt. Kall
+<p><input type="checkbox" id="cbx_11" disabled="true"><label for="cbx_11"> Over scenen er det et tekstfelt hvor du kan gi navn til prosjektet ditt. Kall
 det for eksempel <code>Bygg en skole</code>.</label></p>
 </li>
 <li class="task-list-item">
-<p><input type="checkbox" id="cbx_11" disabled="true"><label for="cbx_11"> I menyen <strong>Fil</strong> kan du velge <strong>Lagre nå</strong> for å lagre prosjektet.</label></p>
+<p><input type="checkbox" id="cbx_12" disabled="true"><label for="cbx_12"> I menyen <strong>Fil</strong> kan du velge <strong>Lagre nå</strong> for å lagre prosjektet.</label></p>
 </li>
 </ul>
 </section>
@@ -128,12 +132,12 @@ det for eksempel <code>Bygg en skole</code>.</label></p>
 <h2 class="check" id="sjekkliste-2">Sjekkliste</h2>
 <ul class="task-list">
 <li class="task-list-item">
-<p><input type="checkbox" id="cbx_12" disabled="true"><label for="cbx_12"> Vi vil jo at figuren skal kunne bevege seg frem og tilbake. Da må vi også
+<p><input type="checkbox" id="cbx_13" disabled="true"><label for="cbx_13"> Vi vil jo at <code>bygger</code> skal kunne bevege seg frem og tilbake. Da må vi også
 lage kode som flytter figuren mot venstre. Prøv først selv om du klarer å
 legge til klosser som gjør dette!</label></p>
 </li>
 <li class="task-list-item">
-<p><input type="checkbox" id="cbx_13" disabled="true"><label for="cbx_13"> Koden vi trenger for å flytte mot venstre er veldig lik den vi allerede
+<p><input type="checkbox" id="cbx_14" disabled="true"><label for="cbx_14"> Koden vi trenger for å flytte mot venstre er veldig lik den vi allerede
 har laget for å flytte mot høyre. Vi må bare endre hvilken piltast som
 trykkes, og hvilket tall vi endrer <code class="blockmotion">x</code> med.</label></p>
 <p>Når vi er ferdig med dette bør koden din se slik ut:</p>
@@ -157,25 +161,340 @@ slutt
 <p><em>Nå skal vi programmere ting vi kan samle sammen for å bygge en skole.</em></p>
 <section class="check" id="sjekkliste-3">
 <h2 class="check" id="sjekkliste-3">Sjekkliste</h2>
+<ul class="task-list">
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_15" disabled="true"><label for="cbx_15"> Last ned filen
+<a href="bygg_en_skole_grafikk.zip">bygg_en_skole_grafikk.zip</a>. Denne inneholder mange
+forskjellige ting som kan være nyttige på en skole. Pakk den ut et sted du
+finner den igjen.</label></p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_16" disabled="true"><label for="cbx_16"> Klikk på <img src="../bilder/hent-fra-fil.png" alt="Last opp figur fra fil"> ved siden
+av <strong>Ny figur:</strong>. Velg en filene du nettopp pakket ut. Vi har brukt
+<code>blyant-03.png</code>, men du kan bruke den figuren du vil.</label></p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_17" disabled="true"><label for="cbx_17"> Vi skal nå få denne figuren til å falle over skjermen, slik at den kan
+fanges av <code>bygger</code>-figuren vi laget tidligere. Skriv denne koden:</label></p>
+<pre><code class="blocks">når grønt flagg klikkes
+for alltid
+    gå til x: (-50) y: (180)
+    gjenta til &lt;&lt;berører [bygger v]?&gt; eller &lt;(y-posisjon) &lt; (-175)&gt;&gt;
+        endre y med (-3)
+    slutt
+slutt
+</code></pre>
+</li>
+</ul>
+</section>
+<section class="flag" id="test-prosjektet-2">
+<h2 class="flag" id="test-prosjektet-2">Test prosjektet</h2>
+<p><strong>Klikk på det grønne flagget</strong></p>
+<ul class="task-list">
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_18" disabled="true"><label for="cbx_18"> Faller den nye figuren nedover skjermen?</label></p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_19" disabled="true"><label for="cbx_19"> Vi har sagt at figuren skal falle helt til den <code class="b">berører [bygger v]?</code>
+eller <code class="b">(y-posisjon) &lt; (-175)</code>. Det første betyr at figuren slutter å falle
+når <code>bygger</code>-figuren vår fanger den. Hva betyr det andre? (Når slutter figuren
+å falle dersom <code>bygger</code> ikke fanger den?)</label></p>
+<p>Husk at <code class="blockmotion">y</code> sier hvordan en figur beveger seg opp og
+ned. Klossen <code class="b">(y-posisjon) &lt; (-175)</code> tester om figuren har kommet til
+bunnen av skjermen.</p>
+</li>
+</ul>
+<section class="tip" id="tilfeldige-tall">
+<h3 class="tip" id="tilfeldige-tall">Tilfeldige tall</h3>
+<p>Akkurat nå er spillet vårt ganske kjedelig fordi det samme skjer hele tiden. For
+å få litt variasjon kan vi bruke klossen <code class="b">tilfeldig tall fra () til ()</code>. Denne lager tall som vil være forskjellige hver gang vi spiller.</p>
+</section>
+</section>
+<section class="check" id="sjekkliste-4">
+<h2 class="check" id="sjekkliste-4">Sjekkliste</h2>
+<ul class="task-list">
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_20" disabled="true"><label for="cbx_20"> Endre klossen <code class="b">gå til x: (-50) y: (180)</code> til <code class="b">gå til x: (tilfeldig tall fra (-200) til (200)) y: (180)</code>.</label></p>
+<p>Prøv spillet ditt igjen. Nå vil figuren falle forskjellige steder på
+skjermen, og spillet blir mye morsommere.</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_21" disabled="true"><label for="cbx_21"> Hvis du synes at figurene dine er litt store kan du klikke på
+<img src="../bilder/krymp.png" alt="Krymp"> øverst på skjermen og deretter på en figur for å
+gjøre den mindre.</label></p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_22" disabled="true"><label for="cbx_22"> Vi kan også bruke tilfeldige tall for å legge inn en liten pause mellom
+hver gang figuren faller over skjermen. Legg til klosser slik at skriptet ditt
+ser slik ut:</label></p>
+<pre><code class="blocks">når grønt flagg klikkes
+for alltid
+    skjul
+    vent (tilfeldig tall fra (1) til (4)) sekunder
+    gå til x: (tilfeldig tall fra (-200) til (200)) y: (180)
+    vis
+    gjenta til &lt;&lt;berører [bygger v]?&gt; eller &lt;(y-posisjon) &lt; (-175)&gt;&gt;
+        endre y med (-3)
+    slutt
+slutt
+</code></pre>
+</li>
+</ul>
 </section>
 </section>
 <section class="activity" id="steg-3-en-skole-blir-bygd">
 <h1 class="activity" id="steg-3-en-skole-blir-bygd">Steg 3: En skole blir bygd</h1>
+<p><em>La oss bygge en skole!</em></p>
+<section class="check" id="sjekkliste-5">
+<h2 class="check" id="sjekkliste-5">Sjekkliste</h2>
+<ul class="task-list">
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_23" disabled="true"><label for="cbx_23"> Last ned filen <a href="skole.png">skole.png</a>.</label></p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_24" disabled="true"><label for="cbx_24"> Klikk <img src="../bilder/hent-fra-fil.png" alt="Last opp bakgrunn fra fil"> under <strong>Ny
+bakgrunn</strong> helt til venstre på skjermen. Pass på at du laster opp en bakgrunn
+og ikke en ny figur! Velg <code>skole.png</code> som du nettopp lastet ned.</label></p>
+</li>
+</ul>
+<p>Du har nå en skole i prosjektet ditt. For at det skal se ut som om vi bygger
+denne i løpet av spillet skal vi først gjemme den, og deretter la den komme til
+syne litt etter litt.</p>
+<ul class="task-list">
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_25" disabled="true"><label for="cbx_25"> Last ned filen <a href="rutenett.png">rutenett.png</a>.</label></p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_26" disabled="true"><label for="cbx_26"> Klikk <img src="../bilder/hent-fra-fil.png" alt="Last opp figur fra fil"> ved siden av
+<strong>Ny figur:</strong>, og velg filen <code>rutenett.png</code> som du nettopp lastet ned. Pass på
+at denne gangen skal det være en ny figur (og ikke en ny bakgrunn)!</label></p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_27" disabled="true"><label for="cbx_27"> Skriv denne koden på <code>rutenett</code>-figuren:</label></p>
+<pre><code class="blocks">når grønt flagg klikkes
+flytt bakover (100) lag
+gå til x: (0) y: (0)
+vis
+</code></pre>
+<p>Vi sier her at rutenettet skal ligge bak alle andre figurer (for eksempel
+<code>bygger</code>-figuren). Det vil likevel ligge foran bakgrunnen, slik at skolen er
+skjult inntil videre.</p>
+</li>
+</ul>
+<section class="tip" id="variabler">
+<h3 class="tip" id="variabler">Variabler</h3>
+<p>Variabler er noe vi kan bruke når vi programmerer om vi trenger å huske ting. Vi
+skal nå bruke en variabel for å huske hvor mange ting vi har samlet, slik at vi
+kan vise hvor mye av skolen som er bygd.</p>
 </section>
-<section class="activity" id="steg-4-flere-hjelpemidler">
-<h1 class="activity" id="steg-4-flere-hjelpemidler">Steg 4: Flere hjelpemidler</h1>
+</section>
+<section class="check" id="sjekkliste-6">
+<h2 class="check" id="sjekkliste-6">Sjekkliste</h2>
+<ul class="task-list">
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_28" disabled="true"><label for="cbx_28"> Klikk på <code class="blockdata">Data</code>-kategorien, og deretter på <code>Lag en variabel</code>. Kall variabelen <code>poeng</code> og la den gjelde <em>for alle figurer</em>.</label></p>
+<p>Legg merke til at det dukket opp flere nye klosser vi kan bruke til å sette
+eller endre verdien av <code class="b">(poeng)</code>.</p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_29" disabled="true"><label for="cbx_29"> Klikk på <em>hjelpemiddel</em>-figuren (som vi skal samle på). Vi skal nå få
+<code class="b">(poeng)</code> når vi plukker den opp. Legg til en <code class="blockcontrol">hvis</code>-kloss
+nederst i skriptet:</label></p>
+<pre><code class="blocks">når grønt flagg klikkes
+for alltid
+    skjul
+    vent (tilfeldig tall fra (1) til (4)) sekunder
+    gå til x: (tilfeldig tall fra (-200) til (200)) y: (180)
+    vis
+    gjenta til &lt;&lt;berører [bygger v]?&gt; eller &lt;(y-posisjon) &lt; (-175)&gt;&gt;
+        endre y med (-3)
+    slutt
+    hvis &lt;berører [bygger v]?&gt;
+        endre [poeng v] med (10)
+    slutt
+slutt
+</code></pre>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_30" disabled="true"><label for="cbx_30"> For at skolen skal bygges kan vi nå koble poengene sammen med rutenettet
+som vi skjuler skolen med. Klikk på <code>rutenett</code>-figuren.</label></p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_31" disabled="true"><label for="cbx_31"> Legg til en løkke som flytter <code>rutenett</code>-figuren:</label></p>
+<pre><code class="blocks">når grønt flagg klikkes
+flytt bakover (100) lag
+gå til x: (0) y: (0)
+vis
+for alltid
+    sett y til (poeng)
+slutt
+</code></pre>
+</li>
+</ul>
+</section>
+<section class="flag" id="test-prosjektet-3">
+<h2 class="flag" id="test-prosjektet-3">Test prosjektet</h2>
+<p><strong>Klikk på det grønne flagget</strong></p>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" id="cbx_32" disabled="true"><label for="cbx_32"> Kommer skolen til syne litt etter litt, etterhvert som du samler ting?</label></li>
+</ul>
+</section>
+<section class="check" id="sjekkliste-7">
+<h2 class="check" id="sjekkliste-7">Sjekkliste</h2>
+<p>Vi skal nå gjøre spillet litt vanskeligere etterhvert ved at <code>bygger</code>-figuren
+flytter seg oppover skjermen sammen med rutenettet.</p>
+<ul class="task-list">
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_33" disabled="true"><label for="cbx_33"> Klikk på <code>bygger</code>-figuren.</label></p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_34" disabled="true"><label for="cbx_34"> Legg til klossen <code class="b">sett y til ((poeng) - (120))</code> nederst i <code class="blockcontrol">for alltid</code>-løkka.</label></p>
+</li>
+</ul>
+<p>Du oppdager kanskje at om du spiller flere ganger legger ikke rutenettet seg
+tilbake og skjuler skolen? Det er fordi vi ikke setter <code class="b">(poeng)</code> tilbake til
+0 når spillet starter. Det kan vi enkelt fikse.</p>
+<ul class="task-list">
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_35" disabled="true"><label for="cbx_35"> Klikk på bakgrunnen (over ordet <strong>Scene</strong>) til venstre på skjermen.</label></p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_36" disabled="true"><label for="cbx_36"> Legg til koden:</label></p>
+<pre><code class="blocks">når grønt flagg klikkes
+sett [poeng v] til (0)
+</code></pre>
+</li>
+</ul>
+</section>
+</section>
+<section class="activity" id="steg-4-skolen-blir-ferdig">
+<h1 class="activity" id="steg-4-skolen-blir-ferdig">Steg 4: Skolen blir ferdig</h1>
+<p><em>Når skolen er ferdig bygd må vi feire!</em></p>
+<section class="check" id="sjekkliste-8">
+<h2 class="check" id="sjekkliste-8">Sjekkliste</h2>
+<ul class="task-list">
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_37" disabled="true"><label for="cbx_37"> For å vite når skolen er ferdig bygd kan vi undersøke poengene. Klikk på
+<code>rutenett</code>-figuren.</label></p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_38" disabled="true"><label for="cbx_38"> Legg til en test nederst i <code class="blockcontrol">for alltid</code>-løkka:</label></p>
+<pre><code class="blocks">når grønt flagg klikkes
+flytt bakover (100) lag
+gå til x: (0) y: (0)
+vis
+for alltid
+    sett y til (poeng)
+    hvis &lt;(poeng) &gt; (200)&gt;
+        send melding [skole ferdig v]
+    slutt
+slutt
+</code></pre>
+</li>
+</ul>
+<p>En <strong>melding</strong> er en beskjed figurene kan sende til hverandre, slik at de alle
+kan gjøre noe samtidig. Nå må vi bare bestemme hva figurene skal gjøre når
+skolen er ferdig.</p>
+<ul class="task-list">
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_39" disabled="true"><label for="cbx_39"> La oss trekke rutenettet helt opp av skjermen. Det kan vi gjøre ved å lage
+denne nye koden (den skal ligge ved siden av koden du allerede har):</label></p>
+<pre><code class="blocks">når jeg mottar [skole ferdig v]
+stopp [andre skript i figuren v]
+gli (1) sekunder til x: (0) y: (400)
+skjul
+</code></pre>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_40" disabled="true"><label for="cbx_40"> På samme måte kan <code>bygger</code>-figuren vår gå til trappa foran skolen. Klikk
+på <code>bygger</code>-figuren og skriv dette nye skriptet:</label></p>
+<pre><code class="blocks">når jeg mottar [skole ferdig v]
+stopp [andre skript i figuren v]
+gli (1) sekunder til x: (0) y: (-100)
+skjul
+</code></pre>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_41" disabled="true"><label for="cbx_41"> Til slutt vil vi at den siste figuren skal slutte å falle over
+skjermen. Klikk på den og skriv denne nye koden:</label></p>
+<pre><code class="blocks">når jeg mottar [skole ferdig v]
+stopp [andre skript i figuren v]
+skjul
+</code></pre>
+</li>
+</ul>
+</section>
+<section class="flag" id="test-prosjektet-4">
+<h2 class="flag" id="test-prosjektet-4">Test prosjektet</h2>
+<p><strong>Klikk på det grønne flagget</strong></p>
+<ul class="task-list">
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_42" disabled="true"><label for="cbx_42"> Avsluttes spillet når skolen er ferdig bygd? Endre gjerne på noen av
+tallene vi har brukt om ting ikke ser helt riktig ut.</label></p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_43" disabled="true"><label for="cbx_43"> Klarer du å starte spillet igjen ved å klikke det grønne flagget på nytt?</label></p>
+</li>
+</ul>
+</section>
+</section>
+<section class="activity" id="steg-5-flere-hjelpemidler">
+<h1 class="activity" id="steg-5-flere-hjelpemidler">Steg 5: Flere hjelpemidler</h1>
+<p><em>Det er mye forskjellig som trenges for å bygge en skole. La oss samle flere
+ting!</em></p>
+<section class="check" id="sjekkliste-9">
+<h2 class="check" id="sjekkliste-9">Sjekkliste</h2>
+<ul class="task-list">
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_44" disabled="true"><label for="cbx_44"> Det er enkelt å legge til flere hjelpemidler. Lag en kopi av
+hjelpemiddel-figuren du allerede har. Dette kan du gjøre ved å høyreklikke på
+figuren og velge <code>Lag en kopi</code>, eller ved å klikke på
+<img src="../bilder/lag-en-kopi.png" alt="Lag en kopi"> øverst på skjermen og deretter på
+figuren.</label></p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_45" disabled="true"><label for="cbx_45"> Vi kan nå bytte utseendet på denne nye figuren. Klikk på <code>Drakter</code>-fanen,
+og deretter <img src="../bilder/hent-fra-fil.png" alt="Last opp drakt fra fil"> under <strong>Ny
+drakt:</strong>. Velg en av de andre figurene du lastet ned tidligere.</label></p>
+</li>
+</ul>
+</section>
+<section class="flag" id="test-prosjektet-5">
+<h2 class="flag" id="test-prosjektet-5">Test prosjektet</h2>
+<p><strong>Klikk på det grønne flagget</strong></p>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" id="cbx_46" disabled="true"><label for="cbx_46"> Det skal nå være to forskjellige figurer som faller over skjermen og som
+du kan samle på for å bygge skolen.</label></li>
+</ul>
+</section>
 <section class="challenge" id="prov-selv">
 <h2 class="challenge" id="prov-selv">Prøv selv</h2>
 <p>Vi har nå laget et lite spill sammen, men prøv gjerne å utvikle det videre. Her
 er noen ideer:</p>
 <ul class="task-list">
 <li class="task-list-item">
-<p><input type="checkbox" id="cbx_14" disabled="true"><label for="cbx_14"> Forskjellig hastigheter på hjelpemidlene</label></p>
+<p><input type="checkbox" id="cbx_47" disabled="true"><label for="cbx_47"> Legg til enda flere hjelpemidler som du kan samle på.</label></p>
 </li>
 <li class="task-list-item">
-<p><input type="checkbox" id="cbx_15" disabled="true"><label for="cbx_15"> Forskjellige poeng på hjelpemidlene</label></p>
+<p><input type="checkbox" id="cbx_48" disabled="true"><label for="cbx_48"> For å gjøre spillet mer interessant kan du gi hjelpemidlene forskjellig
+hastighet når de faller over skjermen. Hastigheten hjelpemidlene faller med
+styres av tallet <code>3</code> i klossen <code class="b">endre y med (-3)</code>.</label></p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_49" disabled="true"><label for="cbx_49"> Det er jo vanskeligere å få tak i de tingene som faller raskt. Kanskje man
+skal få forskjellig antall poeng for de forskjellige hjelpemidlene?</label></p>
+</li>
+<li class="task-list-item">
+<p><input type="checkbox" id="cbx_50" disabled="true"><label for="cbx_50"> Kanskje du også klarer å gi minuspoeng for de tingene man ikke klarer å ta
+i mot?</label></p>
 </li>
 </ul>
+</section>
+<section class="save" id="lagre-spillet">
+<h2 class="save" id="lagre-spillet">Lagre spillet</h2>
+<p>Husk å lagre spillet når du er ferdig. Når du er fornøyd kan du også klikke på
+<code>Legg ut</code>-knappen. Da vil spillet ditt bli lagt ut på Scratch-hjemmesiden din
+slik at andre kan spille det!</p>
 </section>
 </section>
 </div><div class="improve"><h3>Forbedre denne siden</h3><p>Funnet en feil? Kunne noe vært bedre? Hvis ja, vennligst gi oss tilbakemelding ved å lage en sak på Github eller fiks feilen selv om du kan. Vi er takknemlige for enhver tilbakemelding!</p><a href="https://github.com/kodeklubben/oppgaver/issues/new?title=Problem med Scratch: Bygg en skole&amp;body=Oppgavens kildekode: https://github.com/kodeklubben/oppgaver/tree/master/src/scratch/bygg_en_skole" class="issue">Rapporter et problem</a><a href="https://github.com/kodeklubben/oppgaver/tree/master/src/scratch/bygg_en_skole" class="code">Vis koden og fiks selv</a></div></div><div class="col-xs-12"><div id="footer" class="clearfix"><div class="license"><p><strong>Lisens:</strong></p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/deed.no">CC BY-SA 4.0</a></div><div class="author"><p><strong>Forfatter</strong></p><p>Geir Arne Hjelle</p>
