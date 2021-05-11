@@ -56,5 +56,5 @@ Det skrives en del kode underveis i kurset. Her kan du laste ned koden nøyaktig
 - **Onsdag 14. april 2021:** [`kode_20210414.zip`](kode_20210414.zip)
 - **Onsdag 3. februar 2021:** [`kode_20210203.zip`](kode_20210203.zip)
 - **Onsdag 2. desember 2020:** [`kode_20201202.zip`](kode_20201202.zip)
-- **Onsdag 24. september 2020:** [`kode_20200924.zip`](kode_20200924.zip)
-- **Onsdag 16. juni 2020:** [`kode_20200616.zip`](kode_20200616.zip)
+- **Torsdag 24. september 2020:** [`kode_20200924.zip`](kode_20200924.zip)
+- **Tirsdag 16. juni 2020:** [`kode_20200616.zip`](kode_20200616.zip)
