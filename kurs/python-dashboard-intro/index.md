@@ -9,7 +9,6 @@
 
 Kurset holdes jevnlig. De neste planlagte datoene er:
 
-- **Onsdag 19. mai :** ([Påmelding](https://www.tekna.no/kurs/bygg-dashboard-i-python-41490/))
 - **Tirsdag 21. september :** ([Påmelding](https://www.tekna.no/kurs/bygg-dashboard-i-python-41576/))
 - **Torsdag 18. november :** ([Påmelding](https://www.tekna.no/kurs/bygg-dashboard-i-python-41577/))
 
@@ -57,3 +56,4 @@ Kommer snart ...
 Det skrives en del kode underveis i kurset. Her kan du laste ned koden nøyaktig slik den ble skrevet. Filen `konsoll.py` inneholder det som ble skrevet i konsollet nederst til høyre i Spyder.
 
 - **Tirsdag 23. mars 2021:** [`kode_20210323.zip`](kode_20210323.zip)
+- **Onsdag 19. mai 2021:** [`kode_20210519.zip`](kode_20210519.zip)
