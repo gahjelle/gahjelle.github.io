@@ -3,15 +3,19 @@
 
 # Introduksjon til Datanalyse med Python
 
-4 timers introduksjonskurs til dataanalyse med Python, holdt i samarbeid med [Tekna](https://www.tekna.no/).
+4 timers introduksjonskurs til dataanalyse med Python, holdt i samarbeid med [Tekna](https://www.tekna.no/). I dette intervjuet snakker jeg litt om hvorfor Python kan være nyttig å beherske: [Fem grunner til at du bør kunne litt om Python](https://www.tekna.no/kurs/innhold/fem-grunner-til-at-du-bor-kunne-litt-om-python/).
 
 ## Kurskalender
 
 Kurset holdes jevnlig. De neste planlagte datoene er:
 
-- **Torsdag 26. august :** ([Påmelding](https://www.tekna.no/kurs/introduksjon-til-dataanalyse-med-python---nettkurs-41040/))
-- **Torsdag 21. oktober :** ([Påmelding](https://www.tekna.no/kurs/introduksjon-til-dataanalyse-med-python---nettkurs-41578/))
-- **Tirsdag 7. desember :** ([Påmelding](https://www.tekna.no/kurs/introduksjon-til-dataanalyse-med-python---nettkurs-41050/))
+- **2021:**
+    - **Torsdag 21. oktober:** ([Påmelding](https://www.tekna.no/kurs/introduksjon-til-dataanalyse-med-python---nettkurs-41578/))
+    - **Tirsdag 7. desember:** ([Påmelding](https://www.tekna.no/kurs/introduksjon-til-dataanalyse-med-python---nettkurs-41050/))
+- **2022:**
+    - **Mandag 14. februar:** ([Påmelding](https://www.tekna.no/kurs/introduksjon-til-dataanalyse-med-python---nettkurs-42050/))
+    - **Mandag 4. april:** ([Påmelding](https://www.tekna.no/kurs/introduksjon-til-dataanalyse-med-python---nettkurs-42061/))
+    - **Mandag 13. juni:** ([Påmelding](https://www.tekna.no/kurs/introduksjon-til-dataanalyse-med-python---nettkurs-42064/))
 
 Påmelding skjer på Teknas nettsider, lenket til over.
 
@@ -52,9 +56,12 @@ Dette heftet går i dybden på alt som ble gjennomgått på kurset. Det inkluder
 
 Det skrives en del kode underveis i kurset. Her kan du laste ned koden nøyaktig slik den ble skrevet. Filen `konsoll.py` inneholder det som ble skrevet i konsollet nederst til høyre i Spyder.
 
-- **Torsdag 10. juni :** [`kode_20210610.zip`](kode_20210610.zip)
-- **Onsdag 14. april 2021:** [`kode_20210414.zip`](kode_20210414.zip)
-- **Onsdag 3. februar 2021:** [`kode_20210203.zip`](kode_20210203.zip)
-- **Onsdag 2. desember 2020:** [`kode_20201202.zip`](kode_20201202.zip)
-- **Torsdag 24. september 2020:** [`kode_20200924.zip`](kode_20200924.zip)
-- **Tirsdag 16. juni 2020:** [`kode_20200616.zip`](kode_20200616.zip)
+- **2021:**
+    - **Torsdag 26. august:** [`kode_20210826.zip`](kode_20210826.zip)
+    - **Torsdag 10. juni:** [`kode_20210610.zip`](kode_20210610.zip)
+    - **Onsdag 14. april:** [`kode_20210414.zip`](kode_20210414.zip)
+    - **Onsdag 3. februar:** [`kode_20210203.zip`](kode_20210203.zip)
+- **2020:**
+    - **Onsdag 2. desember:** [`kode_20201202.zip`](kode_20201202.zip)
+    - **Torsdag 24. september:** [`kode_20200924.zip`](kode_20200924.zip)
+    - **Tirsdag 16. juni:** [`kode_20200616.zip`](kode_20200616.zip)
