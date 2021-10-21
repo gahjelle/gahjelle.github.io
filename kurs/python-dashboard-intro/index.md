@@ -9,8 +9,12 @@
 
 Kurset holdes jevnlig. De neste planlagte datoene er:
 
-- **Tirsdag 21. september :** ([Påmelding](https://www.tekna.no/kurs/bygg-dashboard-i-python-41576/))
-- **Torsdag 18. november :** ([Påmelding](https://www.tekna.no/kurs/bygg-dashboard-i-python-41577/))
+- **2021:**
+    - **Torsdag 18. november :** ([Påmelding](https://www.tekna.no/kurs/bygg-dashboard-i-python-41577/))
+- **2022:**
+    - **Mandag 17. januar:** ([Påmelding](https://www.tekna.no/kurs/bygg-dashboard-i-python-42049/))
+    - **Mandag 14. mars:** ([Påmelding](https://www.tekna.no/kurs/bygg-dashboard-i-python-42060/))
+    - **Mandag 23. mai:** ([Påmelding](https://www.tekna.no/kurs/bygg-dashboard-i-python-42062/))
 
 Påmelding skjer på Teknas nettsider, lenket til over.
 
