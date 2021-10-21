@@ -10,7 +10,6 @@
 Kurset holdes jevnlig. De neste planlagte datoene er:
 
 - **2021:**
-    - **Torsdag 21. oktober:** ([Påmelding](https://www.tekna.no/kurs/introduksjon-til-dataanalyse-med-python---nettkurs-41578/))
     - **Tirsdag 7. desember:** ([Påmelding](https://www.tekna.no/kurs/introduksjon-til-dataanalyse-med-python---nettkurs-41050/))
 - **2022:**
     - **Mandag 14. februar:** ([Påmelding](https://www.tekna.no/kurs/introduksjon-til-dataanalyse-med-python---nettkurs-42050/))
@@ -57,6 +56,7 @@ Dette heftet går i dybden på alt som ble gjennomgått på kurset. Det inkluder
 Det skrives en del kode underveis i kurset. Her kan du laste ned koden nøyaktig slik den ble skrevet. Filen `konsoll.py` inneholder det som ble skrevet i konsollet nederst til høyre i Spyder.
 
 - **2021:**
+    - **Torsdag 21. oktober:** [`kode_20211021.zip`](kode_20211021.zip)
     - **Torsdag 26. august:** [`kode_20210826.zip`](kode_20210826.zip)
     - **Torsdag 10. juni:** [`kode_20210610.zip`](kode_20210610.zip)
     - **Onsdag 14. april:** [`kode_20210414.zip`](kode_20210414.zip)
