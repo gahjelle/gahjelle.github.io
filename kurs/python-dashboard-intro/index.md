@@ -10,9 +10,10 @@
 Kurset holdes jevnlig. De neste planlagte datoene er:
 
 - **2022:**
-    - **Mandag 17. januar:** ([Påmelding](https://www.tekna.no/kurs/bygg-dashboard-i-python-42049/))
     - **Mandag 14. mars:** ([Påmelding](https://www.tekna.no/kurs/bygg-dashboard-i-python-42060/))
     - **Mandag 23. mai:** ([Påmelding](https://www.tekna.no/kurs/bygg-dashboard-i-python-42062/))
+    - **Mandag 12. september:**
+    - **Mandag 21. november:**
 
 Påmelding skjer på Teknas nettsider, lenket til over.
 
@@ -30,12 +31,10 @@ Dashrapporter publiseres som nettsider. Kjennskap til hvordan nettsider bygges o
 
 ### Læringsutbytte:
 
-
 - Visualisering av data i grafer og figurer
 - Oppbygning av interaktive rapporter ved bruk av knapper, lister, figurer og andre elementer
 - Kobling mellom brukervalg og kjøring av modeller og utregninger
 - Last opp data og last ned resultater
-- Deling av rapporter med andre - også brukere som ikke har tilgang til Python
 
 ### Målgruppe
 
@@ -56,6 +55,9 @@ Kommer snart ...
 ### Kode
 
 Det skrives en del kode underveis i kurset. Her kan du laste ned koden nøyaktig slik den ble skrevet. Filen `konsoll.py` inneholder det som ble skrevet i konsollet nederst til høyre i Spyder.
+
+- **2022:**
+    - **Mandag 17. januar:** [`kode_20220117.zip`](kode_20220117.zip)
 
 - **2021:**
     - **Torsdag 18. november:** [`kode_20211118.zip`](kode_20211118.zip)
