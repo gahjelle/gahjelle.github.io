@@ -10,8 +10,9 @@
 Kurset holdes jevnlig. De neste planlagte datoene er:
 
 - **2022:**
-    - **Mandag 4. april:** ([Påmelding](https://www.tekna.no/kurs/introduksjon-til-dataanalyse-med-python---nettkurs-42061/))
     - **Mandag 13. juni:** ([Påmelding](https://www.tekna.no/kurs/introduksjon-til-dataanalyse-med-python---nettkurs-42064/))
+    - **Mandag 17. oktober (Oslo):** ([Påmelding](https://www.tekna.no/kurs/introduksjon-til-dataanalyse-med-python-42581/))
+    - **Mandag 12. desember:** ([Påmelding](https://www.tekna.no/kurs/introduksjon-til-dataanalyse-med-python---nettkurs-42568/))
 
 Påmelding skjer på Teknas nettsider, lenket til over.
 
@@ -54,6 +55,7 @@ Det skrives en del kode underveis i kurset. Her kan du laste ned koden nøyaktig
 
 - **2022:**
     - **Mandag 14. februar:** [`kode_20220214.zip`](kode_20220214.zip)
+    - **Mandag 4. april:** [`kode_20220404.zip`](kode_20220404.zip)
 - **2021:**
     - **Tirsdag 7. desember:** [`kode_20211207.zip`](kode_20211207.zip)
     - **Torsdag 21. oktober:** [`kode_20211021.zip`](kode_20211021.zip)
