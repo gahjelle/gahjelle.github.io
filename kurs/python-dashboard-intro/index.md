@@ -10,8 +10,11 @@
 Kurset holdes jevnlig. De neste planlagte datoene er:
 
 - **2022:**
-    - **Mandag 12. september:** ([Påmelding](https://www.tekna.no/kurs/bygg-dashboard-i-python-42569/))
     - **Mandag 21. november:** ([Påmelding](https://www.tekna.no/kurs/bygg-dashboard-i-python-42582/)) (Oslo)
+
+- **2023:**
+    - **Tirsdag 7. februar:** ([Påmelding](https://www.tekna.no/kurs/bygg-dashboard-i-python-43943/))
+    - **Tirsdag 9. mai:** ([Påmelding](https://www.tekna.no/kurs/bygg-dashboard-i-python-43945/)) (Oslo)
 
 Påmelding skjer på Teknas nettsider, lenket til over.
 
@@ -46,15 +49,12 @@ I forbindelse med kurset får du tilgang på kursmateriell.
 
 Introheftet beskriver forberedelser du må gjøre **før** kurset starter. Primært sikrer det at du har Python installert, inkludert de nødvendige pakkene som vil bli brukt i kurset. ([Last ned PDF](python-dashboard-forberedelser.pdf))
 
-### Detaljerte Notater
-
-Kommer snart ...
-
 ### Kode
 
 Det skrives en del kode underveis i kurset. Her kan du laste ned koden nøyaktig slik den ble skrevet. Filen `konsoll.py` inneholder det som ble skrevet i konsollet nederst til høyre i Spyder.
 
 - **2022:**
+    - **Mandag 12. september:** [`kode_20220912.zip`](kode_20220912.zip)
     - **Mandag 23. mai:** [`kode_20220523.zip`](kode_20220523.zip)
     - **Mandag 17. januar:** [`kode_20220117.zip`](kode_20220117.zip)
 
