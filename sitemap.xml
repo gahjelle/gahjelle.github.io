@@ -14,12 +14,6 @@
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://gahjelle.github.io/rebus/foxtrot/index.html</loc>
-    <lastmod>2023-03-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
     <loc>https://gahjelle.github.io/kurs/python-dataanalyse-intro/index.html</loc>
     <lastmod>2023-03-31</lastmod>
     <changefreq>monthly</changefreq>
@@ -32,31 +26,7 @@
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://gahjelle.github.io/rebus/echo/index.html</loc>
-    <lastmod>2023-03-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
     <loc>https://gahjelle.github.io/kurs/python-dashboard-intro/index.html</loc>
-    <lastmod>2023-03-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://gahjelle.github.io/rebus/delta/index.html</loc>
-    <lastmod>2023-03-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://gahjelle.github.io/rebus/alfa/</loc>
-    <lastmod>2023-03-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://gahjelle.github.io/rebus/charlie/</loc>
     <lastmod>2023-03-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
