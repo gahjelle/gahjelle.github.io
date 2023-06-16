@@ -14,6 +14,15 @@ Du lærer hvordan du kan bruke pandas til å ta gjøre enkle dataanalyser.
 [**Mer informasjon**](python-dataanalyse-intro/)
 
 
+## Dataanalyse for viderekommende: Python og pandas
+
+4 timers kurs innen dataanalyse med Python, holdt i samarbeid med [Tekna](https://www.tekna.no/).
+
+Du lærer metodikk for hvordan du gjør dataanalyse. Spesielt utforsker du _tidy data_ og hvordan det forenkler dataarbeidet ditt.
+
+[**Mer informasjon**](python-dataanalyse/)
+
+
 ## Bygg Dashboard i Python
 
 4 timers introduksjonskurs som viser hvordan du kan bygge interaktive rapporter med Python, holdt i samarbeid med [Tekna](https://www.tekna.no/).
