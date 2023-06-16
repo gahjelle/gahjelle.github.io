@@ -1,7 +1,7 @@
 @def title = "Dataanalyse for viderekommende: Python og pandas"
 @def tags = ["kurs", "python", "pandas", "tekna"]
 
-# Introduksjon til Datanalyse med Python
+# Dataanalyse for viderekommende: Python og pandas
 
 4 timers kurs om _tidy data_ og dataanalyse med Python og pandas, holdt i samarbeid med [Tekna](https://www.tekna.no/). I dette intervjuet snakker jeg litt om hvorfor Python kan være nyttig å beherske: [Fem grunner til at du bør kunne litt om Python](https://www.tekna.no/kurs/innhold/fem-grunner-til-at-du-bor-kunne-litt-om-python/).
 
