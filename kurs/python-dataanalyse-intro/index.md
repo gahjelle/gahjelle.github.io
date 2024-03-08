@@ -10,7 +10,6 @@
 Kurset holdes jevnlig. De neste planlagte datoene er:
 
 - **2024:**
-    - **Tirsdag 5. mars (Oslo, 7 timer):** ([Påmelding](https://www.tekna.no/kurs/introduksjon-til-dataanalyse-med-python/?nr=45956))
     - **Tirsdag 4. juni:** ([Påmelding](https://www.tekna.no/kurs/introduksjon-til-dataanalyse-med-python/?nr=45959))
 
 Påmelding skjer på Teknas nettsider, lenket til over.
@@ -53,6 +52,7 @@ Dette heftet går i dybden på alt som ble gjennomgått på kurset. Det inkluder
 Det skrives en del kode underveis i kurset. Her kan du laste ned koden nøyaktig slik den ble skrevet. Filen `konsoll.py` inneholder det som ble skrevet i konsollet nederst til høyre i Spyder.
 
 - **2024:**
+    - **Tirsdag 5. mars:** [`kode_20240305.zip`](kode_20240305.zip)
     - **Mandag 15. januar:** [`kode_20240115.zip`](kode_20240115.zip)
 - **2023:**
     - **Mandag 23. oktober:** [`kode_20231023.zip`](kode_20231023.zip)
