@@ -9,8 +9,8 @@
 
 Kurset holdes jevnlig. De neste planlagte datoene er:
 
-- **2023:**
-    - **Torsdag 15. juni:** ([Påmelding](https://www.tekna.no/kurs/dataanalyse-for-viderekommende-python-og-pandas-45371/))
+- **2024:**
+    - **Onsdag 24. april:** ([Påmelding](https://www.tekna.no/kurs/dataanalyse-for-viderekommende-python-og-pandas-45371/))
 
 Påmelding skjer på Teknas nettsider, lenket til over.
 
@@ -56,5 +56,7 @@ Dette heftet går i dybden på alt som ble gjennomgått på kurset. Det inkluder
 
 Det skrives en del kode underveis i kurset. Her kan du laste ned koden nøyaktig slik den ble skrevet. Filen `konsoll.py` inneholder det som ble skrevet i konsollet nederst til høyre i Spyder.
 
+- **2024:**
+    - **Onsdag 24. april:** [`kode_20240424.zip](kode_20240424.zip)
 - **2023:**
     - **Torsdag 15. juni:** [`kode_20230615.zip`](kode_20230615.zip)
