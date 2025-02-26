@@ -10,8 +10,6 @@
 Kurset holdes jevnlig. De neste planlagte datoene er:
 
 - **2025:**
-    - **Onsdag 26. februar:** Online ([Påmelding](https://www.tekna.no/kurs))
-    - **Onsdag 5. mars:** Oslo ([Påmelding](https://www.tekna.no/kurs))
     - **Onsdag 24. september:** Oslo ([Påmelding](https://www.tekna.no/kurs))
     - **Onsdag 19. november:** Online ([Påmelding](https://www.tekna.no/kurs))
 
@@ -54,6 +52,8 @@ Dette heftet går i dybden på alt som ble gjennomgått på kurset. Det inkluder
 
 Det skrives en del kode underveis i kurset. Her kan du laste ned koden nøyaktig slik den ble skrevet. Filen `konsoll.py` inneholder det som ble skrevet i konsollet nederst til høyre i Spyder.
 
+- **2025:**
+    - **Onsdag 26. februar:** [`kode_20250226.zip`](kode_20250226.zip)
 - **2024:**
     - **Tirsdag 3. desember:** [`kode_20241203.zip`](kode_20241203.zip)
     - **Mandag 23. september:** [`kode_20240923.zip`](kode_20240923.zip)
