@@ -54,6 +54,7 @@ Det skrives en del kode underveis i kurset. Her kan du laste ned koden nøyaktig
 
 - **2025:**
     - **Onsdag 26. februar:** [`kode_20250226.zip`](kode_20250226.zip)
+    - **Onsdag 24. september:** [`kode_20250924.zip`](kode_20250924.zip)
 - **2024:**
     - **Tirsdag 3. desember:** [`kode_20241203.zip`](kode_20241203.zip)
     - **Mandag 23. september:** [`kode_20240923.zip`](kode_20240923.zip)
