@@ -53,8 +53,9 @@ Dette heftet går i dybden på alt som ble gjennomgått på kurset. Det inkluder
 Det skrives en del kode underveis i kurset. Her kan du laste ned koden nøyaktig slik den ble skrevet. Filen `konsoll.py` inneholder det som ble skrevet i konsollet nederst til høyre i Spyder.
 
 - **2025:**
-    - **Onsdag 26. februar:** [`kode_20250226.zip`](kode_20250226.zip)
+    - **Onsdag 19. november:** [`kode_20251119.zip`](kode_20251119.zip)
     - **Onsdag 24. september:** [`kode_20250924.zip`](kode_20250924.zip)
+    - **Onsdag 26. februar:** [`kode_20250226.zip`](kode_20250226.zip)
 - **2024:**
     - **Tirsdag 3. desember:** [`kode_20241203.zip`](kode_20241203.zip)
     - **Mandag 23. september:** [`kode_20240923.zip`](kode_20240923.zip)
